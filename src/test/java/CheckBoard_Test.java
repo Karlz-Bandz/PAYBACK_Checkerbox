@@ -2,29 +2,38 @@ import classes.Checkboard;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import java.lang.reflect.Method;
+
 public class CheckBoard_Test
 {
     private Checkboard checkboardTest = new Checkboard();
 
     @Test
-    public void ShuffleCornersTest()
+    public void ShuffleCornersTest() throws Exception
     {
-        checkboardTest.shuffleCorners();
+        Method shuffleCornerTest = Checkboard.class.getDeclaredMethod("shuffleCorners");
+        shuffleCornerTest.setAccessible(true);
+
+        shuffleCornerTest.invoke(checkboardTest);
+
         int[][] testHelper = checkboardTest.getHelperArr();
-        int allPointaCounter = 0;
+        int allPointCounter = 0;
         int allExpectedPoints = 4;
 
         for(int i = 0; i < 15; i++)
         {
             for(int j = 0; j < 15; j++)
             {
+                System.out.print(testHelper[i][j]);
                 if(testHelper[i][j] != 0)
                 {
                     for(int x = 0; x < testHelper[i][j]; x++)
-                        allPointaCounter += 1;
+                        allPointCounter += 1;
                 }
             }
+            System.out.println();
         }
-        Assertions.assertEquals(allPointaCounter, allExpectedPoints);
+
+        Assertions.assertEquals(allPointCounter, allExpectedPoints);
     }
 }

@@ -28,12 +28,11 @@ public class Checkboard implements Settingz
     @Override
     public int[][] shuffleBoard()
     {
-
         return  checkBoard;
     }
 
-    @Override
-    public void shuffleCorners()
+
+    private void shuffleCorners()
     {
         /*
         * Left-Top Corner
