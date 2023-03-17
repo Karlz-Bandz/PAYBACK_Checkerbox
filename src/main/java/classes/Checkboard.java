@@ -156,21 +156,55 @@ public class Checkboard extends AbstractCheckboard implements Settingz
                 }
             }
         };
+
+        /*
+        * LEFT
+         */
         Runnable loop3 = new Runnable() {
             @Override
             public void run() {
                 for(int i = 1; i < 14; i++)
                 {
+                    if(checkBoard[i][0] != 0)
+                    {
+                        for(int j = 0; j < checkBoard[i][0]; j++)
+                        {
+                            int rander = rand.nextInt(3);
 
+                            if(rander == 0)
+                                helperArr[i-1][0] += 1;
+                            else if(rander == 1)
+                                helperArr[i][1] += 1;
+                            else if(rander == 2)
+                                helperArr[i+1][0] += 1;
+                        }
+                    }
                 }
             }
         };
+
+        /*
+        * RIGHT
+         */
         Runnable loop4 = new Runnable() {
             @Override
             public void run() {
-                for(int i = 1; i < 104; i++)
+                for(int i = 1; i < 14; i++)
                 {
+                    if(checkBoard[i][14] != 0)
+                    {
+                        for(int j = 0; j < checkBoard[i][14]; j++)
+                        {
+                            int rander = rand.nextInt(3);
 
+                            if(rander == 0)
+                                helperArr[i-1][14] += 1;
+                            else if(rander == 1)
+                                helperArr[i][13] += 1;
+                            else if(rander == 2)
+                                helperArr[i+1][14] += 1;
+                        }
+                    }
                 }
             }
         };

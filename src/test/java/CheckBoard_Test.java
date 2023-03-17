@@ -46,7 +46,7 @@ public class CheckBoard_Test
      shuffleWallsTest.invoke(checkboardTest);
 
      int[][] testing = checkboardTest.getHelperArr();
-     int allExpectedPoints = 26;
+     int allExpectedPoints = 52;
      int allGeneratedPoints = 0;
 
      for (int i = 0; i < 15; i++)
