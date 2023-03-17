@@ -1,7 +1,5 @@
 import classes.Checkboard;
 
-import java.util.Arrays;
-
 public class CheckboardMain {
     public static void main(String[] args) {
 
@@ -18,6 +16,30 @@ public class CheckboardMain {
             }
             System.out.println();
         }
+
+        myArr = checkboard.shuffleBoard();
+
+        for(int i = 0; i < 15; i++)
+        {
+            for(int j = 0; j < 15; j++)
+            {
+                System.out.print(myArr[i][j]);
+            }
+            System.out.println();
+        }
+
+        int[][] whatsup = checkboard.getCheckBoard();
+        for(int i = 0; i < 15; i++)
+        {
+            for(int j = 0; j < 15; j++)
+            {
+                System.out.print(whatsup[i][j]);
+            }
+            System.out.println();
+        }
+
+
+
 
 
 
