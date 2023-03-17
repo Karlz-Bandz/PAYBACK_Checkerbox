@@ -6,21 +6,30 @@ import java.lang.reflect.Method;
 
 public class CheckBoard_Test {
 
-    private static int pointerAndDisplayer(int[][] testedArray){
+    private int pointerCounter(int[][] testedArray) {
 
         int allPointCounter = 0;
 
         for (int i = 0; i < 15; i++) {
             for (int j = 0; j < 15; j++) {
-                System.out.print(testedArray[i][j]);
+
                 if (testedArray[i][j] != 0) {
                     for (int x = 0; x < testedArray[i][j]; x++)
                         allPointCounter += 1;
                 }
             }
-            System.out.println();
+
         }
         return allPointCounter;
+    }
+
+    private void displayer(int[][] testedArray) {
+        for (int i = 0; i < 15; i++) {
+            for (int j = 0; j < 15; j++) {
+                System.out.print(testedArray[i][j]);
+            }
+            System.out.println();
+        }
     }
 
 
@@ -34,7 +43,7 @@ public class CheckBoard_Test {
         shuffleCornerTest.invoke(checkboardTest);
 
         int[][] testHelper = checkboardTest.getHelperArr();
-        int allPointCounter = pointerAndDisplayer(testHelper);
+        int allPointCounter = pointerCounter(testHelper);
         int allExpectedPoints = 4;
 
         /*
@@ -56,7 +65,7 @@ public class CheckBoard_Test {
 
         int[][] testing = checkboardTest1.getHelperArr();
         int allExpectedPoints = 52;
-        int allGeneratedPoints = pointerAndDisplayer(testing);
+        int allGeneratedPoints = pointerCounter(testing);
 
         /*
          * This test check if some value is not disappeared
@@ -77,7 +86,7 @@ public class CheckBoard_Test {
 
         int[][] testBoardKernel = checkboardTest.getHelperArr();
         int allExpectedPoints = 169;
-        int allGeneratedPoints = pointerAndDisplayer(testBoardKernel);
+        int allGeneratedPoints = pointerCounter(testBoardKernel);
 
         /*
          * This test check if some value is not disappeared
@@ -87,20 +96,25 @@ public class CheckBoard_Test {
     }
 
     @Test
-    public void ShuffleBoard_Test(){
+    public void ShuffleBoard_Test() {
         Checkboard checkboardTest = new Checkboard();
 
         int allExpectedPoints = 225;
         int[][] test = checkboardTest.shuffleBoard();
-        int allGeneratedPoints = pointerAndDisplayer(test);
+        int allGeneratedPoints = pointerCounter(test);
 
-        checkboardTest.shuffleBoard();
-        checkboardTest.shuffleBoard();
 
         Assertions.assertEquals(allExpectedPoints, allGeneratedPoints);
 
+        for (int i = 0; i < 20; i++) {
+            checkboardTest.shuffleBoard();
+
+        }
+
         test = checkboardTest.shuffleBoard();
-        allGeneratedPoints = pointerAndDisplayer(test);
+        allGeneratedPoints = pointerCounter(test);
+
+        displayer(test);
 
         Assertions.assertEquals(allExpectedPoints, allGeneratedPoints);
     }

@@ -3,10 +3,10 @@ package classes;
 import interfaces.Settingz;
 
 public class Checkboard extends AbstractCheckboard implements Settingz {
+
     private int[][] checkBoard = new int[15][15];
     private int[][] helperArr = new int[15][15];
     private java.util.Random rand = new java.util.Random();
-
 
     /*
      * Initialization of each checkBoard array element with value 1 happens
@@ -20,7 +20,6 @@ public class Checkboard extends AbstractCheckboard implements Settingz {
         }
     }
 
-
     @Override
     public int[][] shuffleBoard() {
 
@@ -28,13 +27,11 @@ public class Checkboard extends AbstractCheckboard implements Settingz {
         shuffleWalls();
         shuffleKernel();
 
-
         checkBoard = helperArr;
         helperArr = new int[15][15];
 
         return this.checkBoard;
     }
-
 
     @Override
     protected void shuffleCorners() {
@@ -99,6 +96,12 @@ public class Checkboard extends AbstractCheckboard implements Settingz {
         }
     }
 
+    /*
+     * In this method I left the comments with threads
+     * because with threads all methods together
+     * inside the shuffleBoard() generates some errors
+     * with array values
+     */
     @Override
     protected void shuffleWalls() {
         /*
@@ -107,20 +110,20 @@ public class Checkboard extends AbstractCheckboard implements Settingz {
 //        Runnable loop1 = new Runnable() {
 //            @Override
 //            public void run() {
-                for (int i = 1; i < 14; i++) {
-                    if (checkBoard[0][i] != 0) {
-                        for (int j = 0; j < checkBoard[0][i]; j++) {
-                            int rander = rand.nextInt(3);
+        for (int i = 1; i < 14; i++) {
+            if (checkBoard[0][i] != 0) {
+                for (int j = 0; j < checkBoard[0][i]; j++) {
+                    int rander = rand.nextInt(3);
 
-                            if (rander == 0)
-                                helperArr[0][i - 1] += 1;
-                            else if (rander == 1)
-                                helperArr[1][i] += 1;
-                            else if (rander == 2)
-                                helperArr[0][i + 1] += 1;
-                        }
-                    }
+                    if (rander == 0)
+                        helperArr[0][i - 1] += 1;
+                    else if (rander == 1)
+                        helperArr[1][i] += 1;
+                    else if (rander == 2)
+                        helperArr[0][i + 1] += 1;
                 }
+            }
+        }
 //            }
 //        };
 
@@ -130,20 +133,20 @@ public class Checkboard extends AbstractCheckboard implements Settingz {
 //        Runnable loop2 = new Runnable() {
 //            @Override
 //            public void run() {
-                for (int i = 1; i < 14; i++) {
-                    if (checkBoard[14][i] != 0) {
-                        for (int j = 0; j < checkBoard[14][i]; j++) {
-                            int rander = rand.nextInt(3);
+        for (int i = 1; i < 14; i++) {
+            if (checkBoard[14][i] != 0) {
+                for (int j = 0; j < checkBoard[14][i]; j++) {
+                    int rander = rand.nextInt(3);
 
-                            if (rander == 0)
-                                helperArr[14][i - 1] += 1;
-                            else if (rander == 1)
-                                helperArr[13][i] += 1;
-                            else if (rander == 2)
-                                helperArr[14][i + 1] += 1;
-                        }
-                    }
+                    if (rander == 0)
+                        helperArr[14][i - 1] += 1;
+                    else if (rander == 1)
+                        helperArr[13][i] += 1;
+                    else if (rander == 2)
+                        helperArr[14][i + 1] += 1;
                 }
+            }
+        }
 //            }
 //        };
 
@@ -153,20 +156,20 @@ public class Checkboard extends AbstractCheckboard implements Settingz {
 //        Runnable loop3 = new Runnable() {
 //            @Override
 //            public void run() {
-                for (int i = 1; i < 14; i++) {
-                    if (checkBoard[i][0] != 0) {
-                        for (int j = 0; j < checkBoard[i][0]; j++) {
-                            int rander = rand.nextInt(3);
+        for (int i = 1; i < 14; i++) {
+            if (checkBoard[i][0] != 0) {
+                for (int j = 0; j < checkBoard[i][0]; j++) {
+                    int rander = rand.nextInt(3);
 
-                            if (rander == 0)
-                                helperArr[i - 1][0] += 1;
-                            else if (rander == 1)
-                                helperArr[i][1] += 1;
-                            else if (rander == 2)
-                                helperArr[i + 1][0] += 1;
-                        }
-                    }
+                    if (rander == 0)
+                        helperArr[i - 1][0] += 1;
+                    else if (rander == 1)
+                        helperArr[i][1] += 1;
+                    else if (rander == 2)
+                        helperArr[i + 1][0] += 1;
                 }
+            }
+        }
 //            }
 //        };
 
@@ -176,20 +179,20 @@ public class Checkboard extends AbstractCheckboard implements Settingz {
 //        Runnable loop4 = new Runnable() {
 //            @Override
 //            public void run() {
-                for (int i = 1; i < 14; i++) {
-                    if (checkBoard[i][14] != 0) {
-                        for (int j = 0; j < checkBoard[i][14]; j++) {
-                            int rander = rand.nextInt(3);
+        for (int i = 1; i < 14; i++) {
+            if (checkBoard[i][14] != 0) {
+                for (int j = 0; j < checkBoard[i][14]; j++) {
+                    int rander = rand.nextInt(3);
 
-                            if (rander == 0)
-                                helperArr[i - 1][14] += 1;
-                            else if (rander == 1)
-                                helperArr[i][13] += 1;
-                            else if (rander == 2)
-                                helperArr[i + 1][14] += 1;
-                        }
-                    }
+                    if (rander == 0)
+                        helperArr[i - 1][14] += 1;
+                    else if (rander == 1)
+                        helperArr[i][13] += 1;
+                    else if (rander == 2)
+                        helperArr[i + 1][14] += 1;
                 }
+            }
+        }
 //            }
 //        };
 //        Thread thread1 = new Thread(loop1);
