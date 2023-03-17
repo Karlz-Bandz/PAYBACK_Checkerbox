@@ -1,7 +1,7 @@
 # PAYBACK_Checkbox
 
 
-This checkbox application is the PAYBACK recruitment task in the hiring process.
+This checkbox application is the PAYBACK recruitment task.
 
 Have to create 2D Array with size 15x15 and each square has the only one point
 after each round the points randomly jump to the adjacent square.
