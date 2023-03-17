@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="CheckBoard_Test" tests="1" skipped="0" failures="0" errors="0" timestamp="2023-03-17T13:46:35" hostname="WPLKM250542-F0V" time="0.031">
+<testsuite name="CheckBoard_Test" tests="2" skipped="0" failures="0" errors="0" timestamp="2023-03-17T14:12:20" hostname="WPLKM250542-F0V" time="0.042">
   <properties/>
-  <testcase name="ShuffleCornersTest()" classname="CheckBoard_Test" time="0.031"/>
-  <system-out><![CDATA[022000121000010
-000010000111110
+  <testcase name="ShuffleWalls_Test()" classname="CheckBoard_Test" time="0.036"/>
+  <testcase name="ShuffleCornersTest()" classname="CheckBoard_Test" time="0.004"/>
+  <system-out><![CDATA[001201011010110
+000101000110000
 000000000000000
 000000000000000
 000000000000000
@@ -15,8 +16,23 @@
 000000000000000
 000000000000000
 000000000000000
-000101010001101
-011201011001100
+000000000001100
+111111001210100
+010000000000000
+000000000000001
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+000000000000000
+010000000000010
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

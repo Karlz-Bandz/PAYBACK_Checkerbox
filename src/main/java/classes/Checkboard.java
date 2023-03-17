@@ -2,7 +2,7 @@ package classes;
 
 import interfaces.Settingz;
 
-public class Checkboard implements Settingz
+public class Checkboard extends AbstractCheckboard implements Settingz
 {
     private int[][] checkBoard = new int[15][15];
     private int[][] helperArr = new int[15][15];
@@ -31,8 +31,8 @@ public class Checkboard implements Settingz
         return  checkBoard;
     }
 
-
-    private void shuffleCorners()
+    @Override
+    protected void shuffleCorners()
     {
         /*
         * Left-Top Corner
@@ -102,8 +102,8 @@ public class Checkboard implements Settingz
             }
         }
     }
-
-    private void shuffleWalls()
+    @Override
+    protected void shuffleWalls()
     {
         /*
         * TOP
