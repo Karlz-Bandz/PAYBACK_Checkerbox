@@ -2,7 +2,7 @@ package classes;
 
 import interfaces.Settingz;
 
-public class Checkboard implements Settingz
+public class Checkboard extends AbstractCheckboard implements Settingz
 {
     private int[][] checkBoard = new int[15][15];
     private int[][] helperArr = new int[15][15];
@@ -31,8 +31,8 @@ public class Checkboard implements Settingz
         return  checkBoard;
     }
 
-
-    private void shuffleCorners()
+    @Override
+    protected void shuffleCorners()
     {
         /*
         * Left-Top Corner
@@ -102,50 +102,112 @@ public class Checkboard implements Settingz
             }
         }
     }
-
-    private void shuffleWalls()
+    @Override
+    protected void shuffleWalls()
     {
+        /*
+        * TOP
+         */
         Runnable loop1 = new Runnable() {
             @Override
             public void run() {
-                for(int i = 1; i < 104; i++)
+                for(int i = 1; i < 14; i++)
                 {
-                    System.out.println(i);
-                }
-            }
-        };
-        Runnable loop2 = new Runnable() {
-            @Override
-            public void run() {
-                for(int i = 1; i < 104; i++)
-                {
-                    System.out.println(i);
-                }
-                for(int i = 1; i < 104; i++)
-                {
-                    System.out.println(i);
-                }
-            }
-        };
-        Runnable loop3 = new Runnable() {
-            @Override
-            public void run() {
-                for(int i = 1; i < 104; i++)
-                {
-                    System.out.println(i);
-                }
-            }
-        };
-        Runnable loop4 = new Runnable() {
-            @Override
-            public void run() {
-                for(int i = 1; i < 104; i++)
-                {
-                    System.out.println(i);
+                    if(checkBoard[0][i] != 0)
+                    {
+                        for(int j = 0; j < checkBoard[0][i]; j++)
+                        {
+                            int rander = rand.nextInt(3);
+
+                            if(rander == 0)
+                                helperArr[0][i-1] += 1;
+                            else if(rander == 1)
+                                helperArr[1][i] += 1;
+                            else if(rander == 2)
+                                helperArr[0][i+1] += 1;
+                        }
+                    }
                 }
             }
         };
 
+        /*
+        * BOTTOM
+         */
+        Runnable loop2 = new Runnable() {
+            @Override
+            public void run() {
+                for(int i = 1; i < 14; i++)
+                {
+                    if(checkBoard[14][i] != 0)
+                    {
+                        for(int j = 0; j < checkBoard[14][i]; j++)
+                        {
+                            int rander = rand.nextInt(3);
+
+                            if(rander == 0)
+                                helperArr[14][i-1] += 1;
+                            else if(rander == 1)
+                                helperArr[13][i] += 1;
+                            else if(rander == 2)
+                                helperArr[14][i+1] += 1;
+                        }
+                    }
+                }
+            }
+        };
+
+        /*
+        * LEFT
+         */
+        Runnable loop3 = new Runnable() {
+            @Override
+            public void run() {
+                for(int i = 1; i < 14; i++)
+                {
+                    if(checkBoard[i][0] != 0)
+                    {
+                        for(int j = 0; j < checkBoard[i][0]; j++)
+                        {
+                            int rander = rand.nextInt(3);
+
+                            if(rander == 0)
+                                helperArr[i-1][0] += 1;
+                            else if(rander == 1)
+                                helperArr[i][1] += 1;
+                            else if(rander == 2)
+                                helperArr[i+1][0] += 1;
+                        }
+                    }
+                }
+            }
+        };
+
+        /*
+        * RIGHT
+         */
+        Runnable loop4 = new Runnable() {
+            @Override
+            public void run() {
+                for(int i = 1; i < 14; i++)
+                {
+                    if(checkBoard[i][14] != 0)
+                    {
+                        for(int j = 0; j < checkBoard[i][14]; j++)
+                        {
+                            int rander = rand.nextInt(3);
+
+                            if(rander == 0)
+                                helperArr[i-1][14] += 1;
+                            else if(rander == 1)
+                                helperArr[i][13] += 1;
+                            else if(rander == 2)
+                                helperArr[i+1][14] += 1;
+                        }
+                    }
+                }
+            }
+        };
         Thread thread1 = new Thread(loop1);
         Thread thread2 = new Thread(loop2);
         Thread thread3 = new Thread(loop3);
@@ -155,8 +217,6 @@ public class Checkboard implements Settingz
         thread2.start();
         thread3.start();
         thread4.start();
-
-
     }
 
 
