@@ -28,12 +28,11 @@ public class Checkboard implements Settingz
     @Override
     public int[][] shuffleBoard()
     {
-
         return  checkBoard;
     }
 
-    @Override
-    public void shuffleCorners()
+
+    private void shuffleCorners()
     {
         /*
         * Left-Top Corner
@@ -102,6 +101,62 @@ public class Checkboard implements Settingz
                     helperArr[14][13] += 1;
             }
         }
+    }
+
+    private void shuffleWalls()
+    {
+        Runnable loop1 = new Runnable() {
+            @Override
+            public void run() {
+                for(int i = 1; i < 104; i++)
+                {
+                    System.out.println(i);
+                }
+            }
+        };
+        Runnable loop2 = new Runnable() {
+            @Override
+            public void run() {
+                for(int i = 1; i < 104; i++)
+                {
+                    System.out.println(i);
+                }
+                for(int i = 1; i < 104; i++)
+                {
+                    System.out.println(i);
+                }
+            }
+        };
+        Runnable loop3 = new Runnable() {
+            @Override
+            public void run() {
+                for(int i = 1; i < 104; i++)
+                {
+                    System.out.println(i);
+                }
+            }
+        };
+        Runnable loop4 = new Runnable() {
+            @Override
+            public void run() {
+                for(int i = 1; i < 104; i++)
+                {
+                    System.out.println(i);
+                }
+            }
+        };
+
+        Thread thread1 = new Thread(loop1);
+        Thread thread2 = new Thread(loop2);
+        Thread thread3 = new Thread(loop3);
+        Thread thread4 = new Thread(loop4);
+
+        thread1.start();
+        thread2.start();
+        thread3.start();
+        thread4.start();
+
+
     }
 
 
