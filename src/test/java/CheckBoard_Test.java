@@ -44,5 +44,25 @@ public class CheckBoard_Test
      shuffleWallsTest.setAccessible(true);
 
      shuffleWallsTest.invoke(checkboardTest);
+
+     int[][] testing = checkboardTest.getHelperArr();
+     int allExpectedPoints = 26;
+     int allGeneratedPoints = 0;
+
+     for (int i = 0; i < 15; i++)
+     {
+         for(int j = 0; j < 15 ; j++)
+         {
+             System.out.print(testing[i][j]);
+             if(testing[i][j] != 0)
+             {
+                 for(int x = 0; x < testing[i][j]; x++)
+                     allGeneratedPoints += 1;
+             }
+         }
+         System.out.println();
+     }
+
+     Assertions.assertEquals(allExpectedPoints, allGeneratedPoints);
     }
 }

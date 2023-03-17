@@ -105,34 +105,63 @@ public class Checkboard implements Settingz
 
     private void shuffleWalls()
     {
+        /*
+        * TOP
+         */
         Runnable loop1 = new Runnable() {
             @Override
             public void run() {
-                for(int i = 1; i < 104; i++)
+                for(int i = 1; i < 14; i++)
                 {
-                    System.out.println(i);
+                    if(checkBoard[0][i] != 0)
+                    {
+                        for(int j = 0; j < checkBoard[0][i]; j++)
+                        {
+                            int rander = rand.nextInt(3);
+
+                            if(rander == 0)
+                                helperArr[0][i-1] += 1;
+                            else if(rander == 1)
+                                helperArr[1][i] += 1;
+                            else if(rander == 2)
+                                helperArr[0][i+1] += 1;
+                        }
+                    }
                 }
             }
         };
+
+        /*
+        * BOTTOM
+         */
         Runnable loop2 = new Runnable() {
             @Override
             public void run() {
-                for(int i = 1; i < 104; i++)
+                for(int i = 1; i < 14; i++)
                 {
-                    System.out.println(i);
-                }
-                for(int i = 1; i < 104; i++)
-                {
-                    System.out.println(i);
+                    if(checkBoard[14][i] != 0)
+                    {
+                        for(int j = 0; j < checkBoard[14][i]; j++)
+                        {
+                            int rander = rand.nextInt(3);
+
+                            if(rander == 0)
+                                helperArr[14][i-1] += 1;
+                            else if(rander == 1)
+                                helperArr[13][i] += 1;
+                            else if(rander == 2)
+                                helperArr[14][i+1] += 1;
+                        }
+                    }
                 }
             }
         };
         Runnable loop3 = new Runnable() {
             @Override
             public void run() {
-                for(int i = 1; i < 104; i++)
+                for(int i = 1; i < 14; i++)
                 {
-                    System.out.println(i);
+
                 }
             }
         };
@@ -141,11 +170,10 @@ public class Checkboard implements Settingz
             public void run() {
                 for(int i = 1; i < 104; i++)
                 {
-                    System.out.println(i);
+
                 }
             }
         };
-
         Thread thread1 = new Thread(loop1);
         Thread thread2 = new Thread(loop2);
         Thread thread3 = new Thread(loop3);
@@ -155,8 +183,6 @@ public class Checkboard implements Settingz
         thread2.start();
         thread3.start();
         thread4.start();
-
-
     }
 
 
