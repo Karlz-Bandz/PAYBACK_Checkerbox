@@ -36,4 +36,13 @@ public class CheckBoard_Test
 
         Assertions.assertEquals(allPointCounter, allExpectedPoints);
     }
+
+    @Test
+    public void ShuffleWalls_Test() throws Exception
+    {
+     Method shuffleWallsTest = Checkboard.class.getDeclaredMethod("shuffleWalls");
+     shuffleWallsTest.setAccessible(true);
+
+     shuffleWallsTest.invoke(checkboardTest);
+    }
 }
