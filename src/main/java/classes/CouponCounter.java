@@ -28,6 +28,8 @@ public class CouponCounter implements Counter
     {
         return "CouponCounter{" +
                 "allCouponSums=" + allCouponSums +
+                ", allMaxCouponValues=" + allMaxCouponValues +
+                ", allMaxCouponCoordinates=" + allMaxCouponCoordinates +
                 '}';
     }
 

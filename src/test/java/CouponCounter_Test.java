@@ -12,6 +12,10 @@ public class CouponCounter_Test
     @Test
     public void SumCoupons_Test()
     {
+
+        /*
+        * Classic test
+         */
         int sum = 0;
         int expectedSum = 225;
 
@@ -22,7 +26,27 @@ public class CouponCounter_Test
 
         int[][] testArr = checkboardTest.getCheckBoard();
         sum = couponCounterTest.sumCoupons(testArr);
+        System.out.println(sum);
 
         Assertions.assertEquals(sum, expectedSum);
+
+        /*
+        * Simple Test
+         */
+        testArr = new int[15][15];
+        testArr[0][0] = 1;
+        testArr[11][13] = 1;
+        expectedSum = 2;
+
+        sum = couponCounterTest.sumCoupons(testArr);
+        System.out.println(sum);
+
+        Assertions.assertEquals(sum, expectedSum);
+
+        /*
+        * allCouponSum List Test
+        * In this case CouponCounter{allCouponSums=[225, 2]
+         */
+        System.out.println(couponCounterTest.toString());
     }
 }
