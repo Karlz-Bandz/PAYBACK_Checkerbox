@@ -1,6 +1,6 @@
 package classes;
 
-import dto.Coordinates;
+import dto.Coordinate;
 import interfaces.Counter;
 
 import java.util.ArrayList;
@@ -21,7 +21,7 @@ public class CouponCounter implements Counter
 
     private List<Integer> allCouponSums;
     private List<Integer> allMaxCouponValues;
-    private HashMap<Integer, Coordinates> allMaxCouponCoordinates;
+    private List<Coordinate> allMaxCouponCoordinates;
 
 
 
@@ -29,7 +29,7 @@ public class CouponCounter implements Counter
     {
         allCouponSums = new ArrayList<>();
         allMaxCouponValues = new ArrayList<>();
-        allMaxCouponCoordinates = new HashMap<>();
+        allMaxCouponCoordinates = new ArrayList<>();
     }
 
     @Override
@@ -77,6 +77,33 @@ public class CouponCounter implements Counter
         return MAX_VAL;
     }
 
+    @Override
+    public Coordinate findMAXCoordinates(int[][] checkBoard)
+    {
+        int len = checkBoard.length;
+        int MAX_VAL = 0;
+        int coordinateA = 0;
+        int coordinateB = 0;
+        Coordinate coordinate;
+
+        for (int i = 0; i < len; i++)
+        {
+            for (int j = 0; j < len; j++)
+            {
+                if(checkBoard[i][j] > MAX_VAL)
+                {
+                    MAX_VAL = checkBoard[i][j];
+                    coordinateA = i;
+                    coordinateB = j;
+                }
+            }
+        }
+        coordinate = new Coordinate(coordinateA, coordinateB);
+        allMaxCouponCoordinates.add(coordinate);
+
+        return coordinate;
+    }
+
 
     public List<Integer> getAllCouponSums()
     {
@@ -88,8 +115,13 @@ public class CouponCounter implements Counter
         return allMaxCouponValues;
     }
 
-    public HashMap<Integer, Coordinates> getAllMaxCouponCoordinates()
+    public String getAllMaxCouponCoordinates()
     {
-        return allMaxCouponCoordinates;
+        StringBuilder builderCoordinates = new StringBuilder();
+        for(Coordinate coordinate: allMaxCouponCoordinates)
+        {
+            builderCoordinates.append("["+coordinate.getCoordinateA()+", "+coordinate.getCoordinateB()+"] ");
+        }
+        return builderCoordinates.toString();
     }
 }
