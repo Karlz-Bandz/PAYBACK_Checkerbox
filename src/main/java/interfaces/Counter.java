@@ -1,6 +1,7 @@
 package interfaces;
 
 import dto.Coordinate;
+import dto.RoundData;
 
 public interface Counter
 {
@@ -9,4 +10,6 @@ public interface Counter
     int findMAX(int[][] checkBoard);
 
     Coordinate findMAXCoordinates(int[][] checkBoard);
+
+    RoundData checkAllRound(int[][] checkBoard);
 }

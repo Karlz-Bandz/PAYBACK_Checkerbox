@@ -1,6 +1,7 @@
 import classes.Checkboard;
 import classes.CouponCounter;
 import dto.Coordinate;
+import dto.RoundData;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -9,6 +10,40 @@ public class CouponCounter_Test
 
     private CouponCounter couponCounterTest = new CouponCounter();
     private Checkboard checkboardTest = new Checkboard();
+
+    @Test
+    public void CheckAllRound_Test()
+    {
+        int[][] testArr = new int[15][15];
+        testArr[0][0] = 4;
+        testArr[3][8] = 1;
+        testArr[12][1] = 44;
+        testArr[13][14] = 32;
+
+        int expectedSum1 = 81;
+        int expectedMax1 = 44;
+        Coordinate expectedMaxCoordinates1 = new Coordinate(12,1);
+
+        /*
+        * checkAllRound method counts all needed values and
+        * returns RoundData object with Max, Sum and Coordinates of Max value
+         */
+        RoundData TestData = couponCounterTest.checkAllRound(testArr);
+        Coordinate testCoordinates = TestData.getCoordinates();
+
+        Assertions.assertEquals(TestData.getSUM(), expectedSum1);
+        Assertions.assertEquals(TestData.getMAX(), expectedMax1);
+        Assertions.assertEquals(testCoordinates.getCoordinateA(), expectedMaxCoordinates1.getCoordinateA());
+        Assertions.assertEquals(testCoordinates.getCoordinateB(),expectedMaxCoordinates1.getCoordinateB());
+
+        /*
+        * All Lists inside CouponCounter class with its data
+         */
+        System.out.println("CheckAllRound_Test");
+        System.out.println(couponCounterTest.getAllMaxCouponCoordinates());
+        System.out.println(couponCounterTest.getAllCouponSums());
+        System.out.println(couponCounterTest.getAllMaxCouponValues());
+    }
 
     @Test
     public void FindMAXCoordinates_Test()
@@ -26,10 +61,10 @@ public class CouponCounter_Test
         testArr2[12][14] = 222;
 
         Coordinate testMAXCoordinate1 = couponCounterTest.findMAXCoordinates(testArr);
-        Coordinate expectedCoordinate1 = new Coordinate(12,1);
+        Coordinate expectedCoordinate1 = new Coordinate(12, 1);
 
         Coordinate testMAXCoordinate2 = couponCounterTest.findMAXCoordinates(testArr2);
-        Coordinate expectedCoordinate2 = new Coordinate(3,0);
+        Coordinate expectedCoordinate2 = new Coordinate(3, 0);
 
         Assertions.assertEquals(testMAXCoordinate1.getCoordinateA(), expectedCoordinate1.getCoordinateA());
         Assertions.assertEquals(testMAXCoordinate1.getCoordinateB(), expectedCoordinate1.getCoordinateB());
@@ -67,7 +102,7 @@ public class CouponCounter_Test
         int expectedMax2 = 222;
 
         Assertions.assertEquals(expectedMax, testMax);
-        Assertions.assertEquals(expectedMax2,testMax2);
+        Assertions.assertEquals(expectedMax2, testMax2);
 
         /*
          * allCouponSum List Test
@@ -81,7 +116,7 @@ public class CouponCounter_Test
     public void SumCoupons_Test()
     {
         /*
-        * Classic test
+         * Classic test
          */
         int sum = 0;
         int expectedSum = 225;
@@ -97,7 +132,7 @@ public class CouponCounter_Test
         Assertions.assertEquals(sum, expectedSum);
 
         /*
-        * Simple Test
+         * Simple Test
          */
         testArr = new int[15][15];
         testArr[0][0] = 1;
@@ -109,8 +144,8 @@ public class CouponCounter_Test
         Assertions.assertEquals(sum, expectedSum);
 
         /*
-        * allCouponSum List Test
-        * In this case CouponCounter{allCouponSums=[225, 2]
+         * allCouponSum List Test
+         * In this case CouponCounter{allCouponSums=[225, 2]
          */
         System.out.println("SumCoupons_Test");
         System.out.println(couponCounterTest.getAllCouponSums());
