@@ -1,6 +1,7 @@
 package classes;
 
-public abstract class AbstractCheckboard {
+public abstract class AbstractCheckboard
+{
 
     protected abstract void shuffleCorners();
 
