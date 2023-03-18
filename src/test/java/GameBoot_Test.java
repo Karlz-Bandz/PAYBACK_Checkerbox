@@ -10,7 +10,7 @@ public class GameBoot_Test
     @Test
     public void BootTheGame_Test()
     {
-        RoundData testData = gameBoot.bootTheGame(5);
+        RoundData testData = gameBoot.bootTheGame(2);
         System.out.println("Round: " + gameBoot.getRound());
         System.out.println("Sum of all points: " + testData.getSUM());
         System.out.println("MAX value: " + testData.getMAX());
