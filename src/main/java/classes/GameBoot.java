@@ -1,5 +1,6 @@
 package classes;
 
+import dto.Coordinate;
 import dto.RoundData;
 import interfaces.Boot;
 
@@ -20,6 +21,18 @@ public class GameBoot implements Boot
         return round;
     }
 
+    /*
+    * This method simulates rounds in three different cases'
+    * case 1 - 25 rounds
+    * case 2 - 50 rounds
+    * case 3 - 100 rounds
+    *
+    * When simulation has been finished method returns data with
+    * all informations about points.
+    *
+    * In cases except 1,2 and 3 method does nothing and returns
+    * RoundData object with all data set with null
+     */
     @Override
     public RoundData bootTheGame(int Fall)
     {
@@ -32,13 +45,21 @@ public class GameBoot implements Boot
         else if(Fall == 3)
             looprVal = 100;
         else
-        return null;
+        return new RoundData(0,0,new Coordinate(0,0));
 
         for(int i = 0; i < looprVal; i++)
         {
          round++;
          checkboard.shuffleBoard();
         }
+        int[][] currentBoard = showCurrentCheckboard();
+
+        return couponCounter.checkAllRound(currentBoard);
+    }
+
+    @Override
+    public int[][] showCurrentCheckboard()
+    {
         int[][] currentBoard = checkboard.getCheckBoard();
 
         for(int i = 0; i < currentBoard.length; i++)
@@ -50,6 +71,6 @@ public class GameBoot implements Boot
             System.out.println();
         }
 
-        return couponCounter.checkAllRound(currentBoard);
+        return currentBoard;
     }
 }
