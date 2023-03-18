@@ -1,10 +1,10 @@
 package classes;
 
 import dto.Coordinate;
+import dto.RoundData;
 import interfaces.Counter;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
 /*
@@ -102,6 +102,18 @@ public class CouponCounter implements Counter
         allMaxCouponCoordinates.add(coordinate);
 
         return coordinate;
+    }
+
+    @Override
+    public RoundData checkAllRound(int[][] checkBoard)
+    {
+        int sum = sumCoupons(checkBoard);
+        int max = findMAX(checkBoard);
+        Coordinate coordinates = findMAXCoordinates(checkBoard);
+
+        RoundData roundData = new RoundData(sum,max,coordinates);
+
+        return roundData;
     }
 
 
