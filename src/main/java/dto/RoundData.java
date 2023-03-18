@@ -2,6 +2,7 @@ package dto;
 
 public class RoundData
 {
+
     private int SUM;
     private int MAX;
     private Coordinate coordinates;
