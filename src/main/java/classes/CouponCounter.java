@@ -23,15 +23,7 @@ public class CouponCounter implements Counter
     private List<Integer> allMaxCouponValues;
     private HashMap<Integer, Coordinates> allMaxCouponCoordinates;
 
-    @Override
-    public String toString()
-    {
-        return "CouponCounter{" +
-                "allCouponSums=" + allCouponSums +
-                ", allMaxCouponValues=" + allMaxCouponValues +
-                ", allMaxCouponCoordinates=" + allMaxCouponCoordinates +
-                '}';
-    }
+
 
     public CouponCounter()
     {
@@ -67,6 +59,37 @@ public class CouponCounter implements Counter
     @Override
     public int findMAX(int[][] checkBoard)
     {
-        return 0;
+        int len = checkBoard.length;
+        int MAX_VAL = 0;
+
+        for (int i = 0; i < len; i++)
+        {
+            for (int j = 0; j < len; j++)
+            {
+                if(checkBoard[i][j] > MAX_VAL)
+                {
+                    MAX_VAL = checkBoard[i][j];
+                }
+            }
+        }
+        allMaxCouponValues.add(MAX_VAL);
+
+        return MAX_VAL;
+    }
+
+
+    public List<Integer> getAllCouponSums()
+    {
+        return allCouponSums;
+    }
+
+    public List<Integer> getAllMaxCouponValues()
+    {
+        return allMaxCouponValues;
+    }
+
+    public HashMap<Integer, Coordinates> getAllMaxCouponCoordinates()
+    {
+        return allMaxCouponCoordinates;
     }
 }
