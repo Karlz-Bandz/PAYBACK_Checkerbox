@@ -3,8 +3,8 @@
 
 This checkbox application is the PAYBACK recruitment task.
 
-Have to create 2D Array with size 15x15 and each square has the only one point
-after each round the points randomly jump to the adjacent square.
+Have to create 2D Array with size 15x15 and each square has the only one point.
+After each round the points randomly jump to the adjacent square.
 
 After 25 rounds player can get one square that have the greatest number of
 points or continue to play and wait for the next collecting of points 
