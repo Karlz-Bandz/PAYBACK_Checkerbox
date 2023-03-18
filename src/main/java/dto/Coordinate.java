@@ -1,12 +1,12 @@
 package dto;
 
-public class Coordinates
+public class Coordinate
 {
 
     private int coordinateA;
     private int coordinateB;
 
-    public Coordinates(int coordinateA, int coordinateB)
+    public Coordinate(int coordinateA, int coordinateB)
     {
         this.coordinateA = coordinateA;
         this.coordinateB = coordinateB;
