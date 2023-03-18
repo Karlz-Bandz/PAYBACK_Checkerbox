@@ -1,6 +1,5 @@
 package interfaces;
 
-public interface Settingz
-{
+public interface Settingz {
     int[][] shuffleBoard();
 }
