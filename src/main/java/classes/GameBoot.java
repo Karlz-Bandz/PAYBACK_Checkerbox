@@ -15,6 +15,11 @@ public class GameBoot implements Boot
         couponCounter = new CouponCounter();
     }
 
+    public int getRound()
+    {
+        return round;
+    }
+
     @Override
     public RoundData bootTheGame(int Fall)
     {

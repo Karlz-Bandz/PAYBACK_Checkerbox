@@ -7,6 +7,12 @@ public class RoundData
     private int MAX;
     private Coordinate coordinates;
 
+
+    public String coordinatesFormat()
+    {
+        return "[" + coordinates.getCoordinateA()+", "+coordinates.getCoordinateB()+"]";
+    }
+
     public RoundData(int SUM, int MAX, Coordinate coordinates)
     {
         this.SUM = SUM;
