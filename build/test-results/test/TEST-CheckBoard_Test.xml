@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="CheckBoard_Test" tests="4" skipped="0" failures="0" errors="0" timestamp="2023-03-18T09:32:15" hostname="WPLKM250542-F0V" time="0.063">
+  <properties/>
+  <testcase name="ShuffleBoard_Test()" classname="CheckBoard_Test" time="0.052"/>
+  <testcase name="ShuffleCorners_Test()" classname="CheckBoard_Test" time="0.002"/>
+  <testcase name="shuffleKernel_Test()" classname="CheckBoard_Test" time="0.003"/>
+  <testcase name="ShuffleWalls_Test()" classname="CheckBoard_Test" time="0.003"/>
+  <system-out><![CDATA[121001110100111
+301230121111212
+102132011101111
+012122112110200
+204112101010321
+000010010210210
+200210110140000
+010002120011112
+020102032212120
+210210041002202
+001013011101300
+130202001200003
+110531120110112
+011002021212111
+000201001142120
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

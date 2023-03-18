@@ -1,5 +1,7 @@
-public class CheckboardMain {
-    public static void main(String[] args) {
+public class CheckboardMain
+{
+    public static void main(String[] args)
+    {
 
     }
 }

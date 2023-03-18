@@ -4,16 +4,20 @@ import org.junit.jupiter.api.Test;
 
 import java.lang.reflect.Method;
 
-public class CheckBoard_Test {
-
-    private int pointerCounter(int[][] testedArray) {
+public class CheckBoard_Test
+{
+    private int pointerCounter(int[][] testedArray)
+    {
 
         int allPointCounter = 0;
 
-        for (int i = 0; i < 15; i++) {
-            for (int j = 0; j < 15; j++) {
+        for (int i = 0; i < 15; i++)
+        {
+            for (int j = 0; j < 15; j++)
+            {
 
-                if (testedArray[i][j] != 0) {
+                if (testedArray[i][j] != 0)
+                {
                     for (int x = 0; x < testedArray[i][j]; x++)
                         allPointCounter += 1;
                 }
@@ -23,9 +27,12 @@ public class CheckBoard_Test {
         return allPointCounter;
     }
 
-    private void displayer(int[][] testedArray) {
-        for (int i = 0; i < 15; i++) {
-            for (int j = 0; j < 15; j++) {
+    private void displayer(int[][] testedArray)
+    {
+        for (int i = 0; i < 15; i++)
+        {
+            for (int j = 0; j < 15; j++)
+            {
                 System.out.print(testedArray[i][j]);
             }
             System.out.println();
@@ -34,7 +41,8 @@ public class CheckBoard_Test {
 
 
     @Test
-    public void ShuffleCorners_Test() throws Exception {
+    public void ShuffleCorners_Test() throws Exception
+    {
         Checkboard checkboardTest = new Checkboard();
 
         Method shuffleCornerTest = Checkboard.class.getDeclaredMethod("shuffleCorners");
@@ -54,7 +62,8 @@ public class CheckBoard_Test {
     }
 
     @Test
-    public void ShuffleWalls_Test() throws Exception {
+    public void ShuffleWalls_Test() throws Exception
+    {
 
         Checkboard checkboardTest1 = new Checkboard();
 
@@ -75,7 +84,8 @@ public class CheckBoard_Test {
     }
 
     @Test
-    public void shuffleKernel_Test() throws Exception {
+    public void shuffleKernel_Test() throws Exception
+    {
 
         Checkboard checkboardTest = new Checkboard();
 
@@ -96,7 +106,8 @@ public class CheckBoard_Test {
     }
 
     @Test
-    public void ShuffleBoard_Test() {
+    public void ShuffleBoard_Test()
+    {
         Checkboard checkboardTest = new Checkboard();
 
         int allExpectedPoints = 225;
@@ -106,7 +117,8 @@ public class CheckBoard_Test {
 
         Assertions.assertEquals(allExpectedPoints, allGeneratedPoints);
 
-        for (int i = 0; i < 20; i++) {
+        for (int i = 0; i < 20; i++)
+        {
             checkboardTest.shuffleBoard();
 
         }
