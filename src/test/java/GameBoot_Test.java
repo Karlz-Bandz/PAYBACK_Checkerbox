@@ -3,6 +3,8 @@ import dto.RoundData;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+
+
 public class GameBoot_Test
 {
 
@@ -26,11 +28,18 @@ public class GameBoot_Test
         System.out.println("MAX value: " + testData2.getMAX());
         System.out.println("Coordinates of MAX: " + testData2.coordinatesFormat());
 
-        System.out.println(gameBoot.displayAllRoundLogs());
-
         Assertions.assertEquals(gameBoot.getRound(), expectedRound);
         Assertions.assertEquals(testData.getSUM(), expectedSum);
         Assertions.assertEquals(testData2.getSUM(), 0);
 
+    }
+
+    @Test
+    public void ShowCurrentCheckboard_Test()
+    {
+        gameBoot.showCurrentCheckboard();
+        gameBoot.bootTheGame(1);
+        System.out.println();
+        gameBoot.showCurrentCheckboard();
     }
 }

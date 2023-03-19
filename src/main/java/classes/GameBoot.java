@@ -47,7 +47,7 @@ public class GameBoot implements Boot
         else
         return new RoundData(0,0,new Coordinate(0,0));
 
-        RoundData lastRoundData = new RoundData(0,0,new Coordinate(0,0));
+        RoundData lastRoundData = new RoundData(0,0, new Coordinate(0,0));
 
         for(int i = 0; i < looprVal; i++)
         {
