@@ -47,14 +47,15 @@ public class GameBoot implements Boot
         else
         return new RoundData(0,0,new Coordinate(0,0));
 
+        RoundData lastRoundData = new RoundData(0,0,new Coordinate(0,0));
+
         for(int i = 0; i < looprVal; i++)
         {
          round++;
-         checkboard.shuffleBoard();
+         lastRoundData = couponCounter.checkAllRound(checkboard.shuffleBoard());
         }
-        int[][] currentBoard = showCurrentCheckboard();
 
-        return couponCounter.checkAllRound(currentBoard);
+        return lastRoundData;
     }
 
     @Override
@@ -66,11 +67,20 @@ public class GameBoot implements Boot
         {
             for(int j = 0; j < currentBoard.length; j++)
             {
-                System.out.print(currentBoard[i][j]);
+                System.out.print(currentBoard[i][j]+ " ");
             }
             System.out.println();
         }
 
         return currentBoard;
+    }
+
+    @Override
+    public String displayAllRoundLogs()
+    {
+        return "All statements from all rounds\n" +
+                "All sums: " + couponCounter.getAllCouponSums() +
+                "\nAll MAX values: " + couponCounter.getAllMaxCouponValues() +
+                "\nAll Max values coordinates: " + couponCounter.getAllMaxCouponCoordinates();
     }
 }

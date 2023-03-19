@@ -1,26 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="GameBoot_Test" tests="1" skipped="0" failures="0" errors="0" timestamp="2023-03-18T22:23:08" hostname="WPLKM250542-F0V" time="0.049">
+<testsuite name="GameBoot_Test" tests="1" skipped="0" failures="0" errors="0" timestamp="2023-03-19T06:25:02" hostname="WPLKM250542-F0V" time="0.056">
   <properties/>
-  <testcase name="BootTheGame_Test()" classname="GameBoot_Test" time="0.049"/>
-  <system-out><![CDATA[101002210122012
-021220131102031
-111112000010122
-021111111010111
-100024302210000
-100002023011211
-121201132001103
-101100121032021
-002105010212011
-010212011320000
-102011001112121
-331212011001001
-131112114002012
-110030103011001
-101020031102100
-Round: 50
+  <testcase name="BootTheGame_Test()" classname="GameBoot_Test" time="0.056"/>
+  <system-out><![CDATA[Round: 25
 Sum of all points: 225
 MAX value: 5
-Coordinates of MAX: [8, 5]
+Coordinates of MAX: [5, 7]
+Round: 25
+Sum of all points: 0
+MAX value: 0
+Coordinates of MAX: [0, 0]
+All statements from all rounds
+All sums: [225, 225, 225, 225, 225, 225, 225, 225, 225, 225, 225, 225, 225, 225, 225, 225, 225, 225, 225, 225, 225, 225, 225, 225, 225]
+All MAX values: [4, 4, 5, 4, 5, 4, 5, 5, 5, 5, 7, 5, 4, 6, 5, 5, 6, 5, 4, 6, 4, 4, 5, 4, 5]
+All Max values coordinates: [8, 10] [3, 3] [1, 1] [2, 11] [8, 3] [3, 1] [6, 11] [11, 9] [7, 8] [2, 3] [8, 4] [8, 3] [2, 4] [7, 4] [1, 5] [7, 2] [2, 6] [1, 13] [1, 5] [6, 10] [1, 5] [3, 9] [3, 3] [4, 6] [5, 7] 
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
