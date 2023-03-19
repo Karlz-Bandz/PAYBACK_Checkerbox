@@ -79,7 +79,7 @@ public class GameBoot implements Boot
     public String displayAllRoundLogs()
     {
         return "All statements from all rounds\n" +
-                "All sums: " + couponCounter.getAllCouponSums() +
+                "Sum all: " + couponCounter.getAllCouponSums() +
                 "\nAll MAX values: " + couponCounter.getAllMaxCouponValues() +
                 "\nAll Max values coordinates: " + couponCounter.getAllMaxCouponCoordinates();
     }
