@@ -4,9 +4,6 @@ import dto.Coordinate;
 import dto.RoundData;
 import interfaces.Boot;
 
-import java.util.List;
-
-
 public class GameBoot implements Boot
 {
     private Checkerboard checkerboard;
@@ -68,6 +65,7 @@ public class GameBoot implements Boot
     @Override
     public int[][] showCurrentCheckboard()
     {
+        clearConsole();
         int[][] currentBoard = checkerboard.getCheckBoard();
 
         for(int i = 0; i < currentBoard.length; i++)
@@ -82,14 +80,18 @@ public class GameBoot implements Boot
         return currentBoard;
     }
 
+    /*
+    * This function displays current logs of all rounds
+    * in suitable format in console
+     */
     @Override
     public String displayAllRoundLogs()
     {
         StringBuilder logBuilder = new StringBuilder();
-        logBuilder.append("Round  ");
+        logBuilder.append("\n\nRound  ");
         logBuilder.append("SUM  ");
         logBuilder.append("MAX Values  ");
-        logBuilder.append("MAX Co-ordinates\n");
+        logBuilder.append("MAX Co-ordinates\n\n");
 
         for(int i = 0; i < couponCounter.getAllCouponSums().size(); i++)
         {
