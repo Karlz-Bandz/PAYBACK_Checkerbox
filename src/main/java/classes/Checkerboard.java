@@ -1,27 +1,19 @@
 package classes;
 
-import interfaces.Settingz;
+/**
+ * <Strong>Checkerboard</Strong> class
+ * <p>This class extends from {@link Board Board} abstract class and here are<br>
+ * algorithms which shuffles points on checkerboard.</p>
+ * <br>
+ * @author Karol Melak
+ * @since 1.0
+ */
 
-public class Checkerboard extends AbstractCheckboard implements Settingz
+public class Checkerboard extends Board
 {
-
-    private int[][] checkBoard = new int[15][15];
-    private int[][] helperArr = new int[15][15];
-    private java.util.Random rand = new java.util.Random();
-
-    /*
-     * Initialization of each checkerBoard array element with value 1 happens
-     * in constructor of class Checkerboard. Value one imitates the Pointee ;)
-     */
     public Checkerboard()
     {
-        for (int i = 0; i < 15; i++)
-        {
-            for (int j = 0; j < 15; j++)
-            {
-                checkBoard[i][j] = 1;
-            }
-        }
+        super();
     }
 
     @Override
@@ -32,10 +24,10 @@ public class Checkerboard extends AbstractCheckboard implements Settingz
         shuffleWalls();
         shuffleKernel();
 
-        checkBoard = helperArr;
+        checkerBoard = helperArr;
         helperArr = new int[15][15];
 
-        return this.checkBoard;
+        return this.checkerBoard;
     }
 
     @Override
@@ -44,7 +36,7 @@ public class Checkerboard extends AbstractCheckboard implements Settingz
         /*
          * Left-Top Corner
          */
-        int firstCorner = checkBoard[0][0];
+        int firstCorner = checkerBoard[0][0];
 
         if (firstCorner > 0)
         {
@@ -61,7 +53,7 @@ public class Checkerboard extends AbstractCheckboard implements Settingz
         /*
          * Right-Top Corner
          */
-        int secondCorner = checkBoard[0][14];
+        int secondCorner = checkerBoard[0][14];
 
         if (secondCorner > 0)
         {
@@ -78,7 +70,7 @@ public class Checkerboard extends AbstractCheckboard implements Settingz
         /*
          * Left-Down Corner
          */
-        int thirdCorner = checkBoard[14][0];
+        int thirdCorner = checkerBoard[14][0];
 
         if (thirdCorner > 0)
         {
@@ -95,7 +87,7 @@ public class Checkerboard extends AbstractCheckboard implements Settingz
         /*
          * Right-Down Corner
          */
-        int fourCorner = checkBoard[14][14];
+        int fourCorner = checkerBoard[14][14];
 
         if (fourCorner > 0)
         {
@@ -127,9 +119,9 @@ public class Checkerboard extends AbstractCheckboard implements Settingz
 //            public void run() {
         for (int i = 1; i < 14; i++)
         {
-            if (checkBoard[0][i] != 0)
+            if (checkerBoard[0][i] != 0)
             {
-                for (int j = 0; j < checkBoard[0][i]; j++)
+                for (int j = 0; j < checkerBoard[0][i]; j++)
                 {
                     int rander = rand.nextInt(3);
 
@@ -153,9 +145,9 @@ public class Checkerboard extends AbstractCheckboard implements Settingz
 //            public void run() {
         for (int i = 1; i < 14; i++)
         {
-            if (checkBoard[14][i] != 0)
+            if (checkerBoard[14][i] != 0)
             {
-                for (int j = 0; j < checkBoard[14][i]; j++)
+                for (int j = 0; j < checkerBoard[14][i]; j++)
                 {
                     int rander = rand.nextInt(3);
 
@@ -179,9 +171,9 @@ public class Checkerboard extends AbstractCheckboard implements Settingz
 //            public void run() {
         for (int i = 1; i < 14; i++)
         {
-            if (checkBoard[i][0] != 0)
+            if (checkerBoard[i][0] != 0)
             {
-                for (int j = 0; j < checkBoard[i][0]; j++)
+                for (int j = 0; j < checkerBoard[i][0]; j++)
                 {
                     int rander = rand.nextInt(3);
 
@@ -205,9 +197,9 @@ public class Checkerboard extends AbstractCheckboard implements Settingz
 //            public void run() {
         for (int i = 1; i < 14; i++)
         {
-            if (checkBoard[i][14] != 0)
+            if (checkerBoard[i][14] != 0)
             {
-                for (int j = 0; j < checkBoard[i][14]; j++)
+                for (int j = 0; j < checkerBoard[i][14]; j++)
                 {
                     int rander = rand.nextInt(3);
 
@@ -240,9 +232,9 @@ public class Checkerboard extends AbstractCheckboard implements Settingz
         {
             for (int j = 1; j < 14; j++)
             {
-                if (checkBoard[i][j] != 0)
+                if (checkerBoard[i][j] != 0)
                 {
-                    for (int x = 0; x < checkBoard[i][j]; x++)
+                    for (int x = 0; x < checkerBoard[i][j]; x++)
                     {
                         int randCoordinate = rand.nextInt(4);
 
@@ -263,7 +255,7 @@ public class Checkerboard extends AbstractCheckboard implements Settingz
 
     public int[][] getCheckBoard()
     {
-        return this.checkBoard;
+        return this.checkerBoard;
     }
 
     public int[][] getHelperArr()
