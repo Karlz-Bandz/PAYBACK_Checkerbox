@@ -1,4 +1,4 @@
-import classes.Checkboard;
+import classes.Checkerboard;
 import classes.CouponCounter;
 import dto.Coordinate;
 import dto.RoundData;
@@ -9,7 +9,7 @@ public class CouponCounter_Test
 {
 
     private CouponCounter couponCounterTest = new CouponCounter();
-    private Checkboard checkboardTest = new Checkboard();
+    private Checkerboard checkboardTest = new Checkerboard();
 
     @Test
     public void CheckAllRound_Test()

@@ -2,7 +2,7 @@ package classes;
 
 import interfaces.Settingz;
 
-public class Checkboard extends AbstractCheckboard implements Settingz
+public class Checkerboard extends AbstractCheckboard implements Settingz
 {
 
     private int[][] checkBoard = new int[15][15];
@@ -10,10 +10,10 @@ public class Checkboard extends AbstractCheckboard implements Settingz
     private java.util.Random rand = new java.util.Random();
 
     /*
-     * Initialization of each checkBoard array element with value 1 happens
-     * in constructor of class Checkboard. Value one imitates the Pointee ;)
+     * Initialization of each checkerBoard array element with value 1 happens
+     * in constructor of class Checkerboard. Value one imitates the Pointee ;)
      */
-    public Checkboard()
+    public Checkerboard()
     {
         for (int i = 0; i < 15; i++)
         {
