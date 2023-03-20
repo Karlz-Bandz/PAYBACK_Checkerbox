@@ -1,10 +1,10 @@
-import classes.Checkboard;
+import classes.Checkerboard;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.lang.reflect.Method;
 
-public class CheckBoard_Test
+public class CheckerBoard_Test
 {
     private int pointerCounter(int[][] testedArray)
     {
@@ -43,9 +43,9 @@ public class CheckBoard_Test
     @Test
     public void ShuffleCorners_Test() throws Exception
     {
-        Checkboard checkboardTest = new Checkboard();
+        Checkerboard checkboardTest = new Checkerboard();
 
-        Method shuffleCornerTest = Checkboard.class.getDeclaredMethod("shuffleCorners");
+        Method shuffleCornerTest = Checkerboard.class.getDeclaredMethod("shuffleCorners");
         shuffleCornerTest.setAccessible(true);
 
         shuffleCornerTest.invoke(checkboardTest);
@@ -65,9 +65,9 @@ public class CheckBoard_Test
     public void ShuffleWalls_Test() throws Exception
     {
 
-        Checkboard checkboardTest1 = new Checkboard();
+        Checkerboard checkboardTest1 = new Checkerboard();
 
-        Method shuffleWallsTest = Checkboard.class.getDeclaredMethod("shuffleWalls");
+        Method shuffleWallsTest = Checkerboard.class.getDeclaredMethod("shuffleWalls");
         shuffleWallsTest.setAccessible(true);
 
         shuffleWallsTest.invoke(checkboardTest1);
@@ -84,12 +84,12 @@ public class CheckBoard_Test
     }
 
     @Test
-    public void shuffleKernel_Test() throws Exception
+    public void ShuffleKernel_Test() throws Exception
     {
 
-        Checkboard checkboardTest = new Checkboard();
+        Checkerboard checkboardTest = new Checkerboard();
 
-        Method shuffleKernelTest = Checkboard.class.getDeclaredMethod("shuffleKernel");
+        Method shuffleKernelTest = Checkerboard.class.getDeclaredMethod("shuffleKernel");
         shuffleKernelTest.setAccessible(true);
 
         shuffleKernelTest.invoke(checkboardTest);
@@ -108,7 +108,7 @@ public class CheckBoard_Test
     @Test
     public void ShuffleBoard_Test()
     {
-        Checkboard checkboardTest = new Checkboard();
+        Checkerboard checkboardTest = new Checkerboard();
 
         int allExpectedPoints = 225;
         int[][] test = checkboardTest.shuffleBoard();

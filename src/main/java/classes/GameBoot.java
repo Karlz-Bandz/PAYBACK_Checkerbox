@@ -8,13 +8,13 @@ import interfaces.Boot;
 
 public class GameBoot implements Boot
 {
-    private Checkboard checkboard;
+    private Checkerboard checkerboard;
     private CouponCounter couponCounter;
     private int round = 0;
 
     public GameBoot()
     {
-        checkboard = new Checkboard();
+        checkerboard = new Checkerboard();
         couponCounter = new CouponCounter();
     }
 
@@ -55,7 +55,7 @@ public class GameBoot implements Boot
         {
             clearConsole();
          round++;
-         lastRoundData = couponCounter.checkAllRound(checkboard.shuffleBoard());
+         lastRoundData = couponCounter.checkAllRound(checkerboard.shuffleBoard());
 
 
          showCurrentCheckboard();
@@ -67,7 +67,7 @@ public class GameBoot implements Boot
     @Override
     public int[][] showCurrentCheckboard()
     {
-        int[][] currentBoard = checkboard.getCheckBoard();
+        int[][] currentBoard = checkerboard.getCheckBoard();
 
         for(int i = 0; i < currentBoard.length; i++)
         {
@@ -90,6 +90,11 @@ public class GameBoot implements Boot
                 "\nAll Max values coordinates: " + couponCounter.getAllMaxCouponCoordinates();
     }
 
+
+    /*
+    * This method doesn't work on any IDE terminal. To see how it works you
+    * have to run code on the local PC Terminal
+     */
     private void clearConsole()
     {
         try {
