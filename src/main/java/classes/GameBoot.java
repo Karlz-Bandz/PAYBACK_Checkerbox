@@ -4,6 +4,8 @@ import dto.Coordinate;
 import dto.RoundData;
 import interfaces.Boot;
 
+
+
 public class GameBoot implements Boot
 {
     private Checkboard checkboard;
@@ -47,14 +49,19 @@ public class GameBoot implements Boot
         else
         return new RoundData(0,0,new Coordinate(0,0));
 
+        RoundData lastRoundData = new RoundData(0,0, new Coordinate(0,0));
+
         for(int i = 0; i < looprVal; i++)
         {
+            clearConsole();
          round++;
-         checkboard.shuffleBoard();
-        }
-        int[][] currentBoard = showCurrentCheckboard();
+         lastRoundData = couponCounter.checkAllRound(checkboard.shuffleBoard());
 
-        return couponCounter.checkAllRound(currentBoard);
+
+         showCurrentCheckboard();
+        }
+
+        return lastRoundData;
     }
 
     @Override
@@ -66,11 +73,34 @@ public class GameBoot implements Boot
         {
             for(int j = 0; j < currentBoard.length; j++)
             {
-                System.out.print(currentBoard[i][j]);
+                System.out.print(currentBoard[i][j]+ " ");
             }
             System.out.println();
         }
 
         return currentBoard;
+    }
+
+    @Override
+    public String displayAllRoundLogs()
+    {
+        return "All statements from all rounds\n" +
+                "Sum all: " + couponCounter.getAllCouponSums() +
+                "\nAll MAX values: " + couponCounter.getAllMaxCouponValues() +
+                "\nAll Max values coordinates: " + couponCounter.getAllMaxCouponCoordinates();
+    }
+
+    private void clearConsole()
+    {
+        try {
+            if (System.getProperty("os.name").contains("Windows")) {
+                new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
+            } else {
+                System.out.print("\033[H\033[2J");
+                System.out.flush();
+            }
+        } catch (Exception e) {
+            System.out.println("Error occurred while clearing console: " + e.getMessage());
+        }
     }
 }

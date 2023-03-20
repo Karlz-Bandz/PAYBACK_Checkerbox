@@ -1,17 +1,21 @@
 import classes.GameBoot;
+import classes.Starter;
+import dto.RoundData;
+
 
 public class Maine
 {
-    public static void main(String[] args)
+
+    public static void main(String[] args) throws Exception
     {
+        Starter starter = new Starter();
 
-        GameBoot boot = new GameBoot();
-        boot.showCurrentCheckboard();
+        starter.open(1);
+        Thread.sleep(4000);
+        starter.open(1);
+        Thread.sleep(4000);
+        starter.open(2);
 
-        System.out.println();
-
-        boot.bootTheGame(1);
-        boot.showCurrentCheckboard();
 
     }
 }
