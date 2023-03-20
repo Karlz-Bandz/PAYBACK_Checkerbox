@@ -117,6 +117,7 @@ public class CouponCounter implements Counter
     }
 
 
+
     public List<Integer> getAllCouponSums()
     {
         return allCouponSums;
@@ -125,6 +126,11 @@ public class CouponCounter implements Counter
     public List<Integer> getAllMaxCouponValues()
     {
         return allMaxCouponValues;
+    }
+
+    public List<Coordinate> getAllCoordinates()
+    {
+        return allMaxCouponCoordinates;
     }
 
     public String getAllMaxCouponCoordinates()

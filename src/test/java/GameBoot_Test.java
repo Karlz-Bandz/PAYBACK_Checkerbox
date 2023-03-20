@@ -82,7 +82,9 @@ public class GameBoot_Test
     @Test
     public void DisplayAllRoundLogs_Test()
     {
+        gameBoot.bootTheGame(1);
         String test = gameBoot.displayAllRoundLogs();
+        System.out.println(test);
         Assertions.assertFalse(test.equals(""));
     }
 }

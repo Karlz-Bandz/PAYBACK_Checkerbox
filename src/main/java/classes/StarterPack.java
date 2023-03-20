@@ -4,20 +4,15 @@ import dto.RoundData;
 
 public class StarterPack extends Starter
 {
-    private GameBoot boot;
-
     public StarterPack(){
-        boot = new GameBoot();
+        super();
     }
-
-
 
     @Override
     public void open()
     {
 
     }
-
 
     @Override
     protected void welcome()
@@ -45,5 +40,11 @@ public class StarterPack extends Starter
         System.out.println("Round: " + boot.getRound() + "\n");
         System.out.println("All points: " + roundData.getSUM() + "\nMAX coupon: " + roundData.getMAX());
         System.out.println("Co-ordinates of MAX coupon: " + roundData.coordinatesFormat());
+    }
+
+    @Override
+    protected void displayLogs()
+    {
+        System.out.println(boot.displayAllRoundLogs());
     }
 }

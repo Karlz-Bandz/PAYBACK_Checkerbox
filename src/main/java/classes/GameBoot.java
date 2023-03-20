@@ -4,6 +4,7 @@ import dto.Coordinate;
 import dto.RoundData;
 import interfaces.Boot;
 
+import java.util.List;
 
 
 public class GameBoot implements Boot
@@ -84,10 +85,22 @@ public class GameBoot implements Boot
     @Override
     public String displayAllRoundLogs()
     {
-        return "All statements from all rounds\n" +
-                "Sum all: " + couponCounter.getAllCouponSums() +
-                "\nAll MAX values: " + couponCounter.getAllMaxCouponValues() +
-                "\nAll Max values coordinates: " + couponCounter.getAllMaxCouponCoordinates();
+        StringBuilder logBuilder = new StringBuilder();
+        logBuilder.append("Round  ");
+        logBuilder.append("SUM  ");
+        logBuilder.append("MAX Values  ");
+        logBuilder.append("MAX Co-ordinates\n");
+
+        for(int i = 0; i < couponCounter.getAllCouponSums().size(); i++)
+        {
+            logBuilder.append(i+1 + ".     ");
+            logBuilder.append(couponCounter.getAllCouponSums().get(i) + "      ");
+            logBuilder.append(couponCounter.getAllMaxCouponValues().get(i) + "           ");
+            logBuilder.append("[" + couponCounter.getAllCoordinates().get(i).getCoordinateA() + ", " +
+                    couponCounter.getAllCoordinates().get(i).getCoordinateB() + "]\n");
+        }
+
+        return logBuilder.toString();
     }
 
 
