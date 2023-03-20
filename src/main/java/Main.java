@@ -1,22 +1,23 @@
+import classes.GameBoot;
 import classes.StarterPack;
 
 public class Main
 {
-    /*
-    *        !IMPORTANT!
-    * This application logic works correct always but is displayed correct only
+    /**
+    *           <strong>!IMPORTANT!</strong>
+    * <p>The application logic always works correct, but it is displayed correct only
     * when is run on Windows command line or IOS/Linux terminal.
-    * It happens because private method clearConsole() inside the GameBoot class
-    * doesn't work on any IDE console.
+    * It happens because private method {@link GameBoot#clearConsole() clearConsole} inside the GameBoot class
+    * doesn't work on any IDE console.</p>
     *
-    * To run in a console go to the command prompt and navigate to the directory
-    * where your PAYBACK_Checkerboard file is saved using the "cd" command.
+    * <p>To run in a console go to the command prompt and navigate to the directory
+    * where your <strong>PAYBACK_Checkerboard</strong> file is saved using the "cd" command.
     * Compile your Java code by entering the command "javac Main.java" in src/main/java folder.
-    * When code is compiled to run application enter the command "java Main"
+    * When code is already compiled to run application enter the command "java Main"</p>
     *
-    * More information will be displayed when you run the program.
+    * <p>More information will be displayed when you run the program.<br>
     * More details and descriptions can be found inside interfaces and
-    * abstract classes.
+    * classes.</p>
      */
     public static void main(String[] args) throws Exception
     {
