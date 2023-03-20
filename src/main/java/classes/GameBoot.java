@@ -4,6 +4,8 @@ import dto.Coordinate;
 import dto.RoundData;
 import interfaces.Boot;
 
+
+
 public class GameBoot implements Boot
 {
     private Checkboard checkboard;
@@ -51,8 +53,12 @@ public class GameBoot implements Boot
 
         for(int i = 0; i < looprVal; i++)
         {
+            clearConsole();
          round++;
          lastRoundData = couponCounter.checkAllRound(checkboard.shuffleBoard());
+
+
+         showCurrentCheckboard();
         }
 
         return lastRoundData;
@@ -82,5 +88,19 @@ public class GameBoot implements Boot
                 "Sum all: " + couponCounter.getAllCouponSums() +
                 "\nAll MAX values: " + couponCounter.getAllMaxCouponValues() +
                 "\nAll Max values coordinates: " + couponCounter.getAllMaxCouponCoordinates();
+    }
+
+    private void clearConsole()
+    {
+        try {
+            if (System.getProperty("os.name").contains("Windows")) {
+                new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
+            } else {
+                System.out.print("\033[H\033[2J");
+                System.out.flush();
+            }
+        } catch (Exception e) {
+            System.out.println("Error occurred while clearing console: " + e.getMessage());
+        }
     }
 }

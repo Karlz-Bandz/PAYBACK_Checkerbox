@@ -11,6 +11,15 @@ public class GameBoot_Test
     private GameBoot gameBoot = new GameBoot();
 
     @Test
+    public void basic(){
+        for(int i = 0; i < 10 ; i++)
+        {
+
+            System.out.println(i);
+        }
+    }
+
+    @Test
     public void BootTheGame_Test()
     {
         int expectedRound = 25;

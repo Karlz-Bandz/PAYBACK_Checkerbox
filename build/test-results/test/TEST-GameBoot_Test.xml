@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="GameBoot_Test" tests="1" skipped="0" failures="0" errors="0" timestamp="2023-03-19T19:26:31" hostname="WPLKM250542-F0V" time="0.034">
+  <properties/>
+  <testcase name="basic()" classname="GameBoot_Test" time="0.034"/>
+  <system-out><![CDATA[0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
