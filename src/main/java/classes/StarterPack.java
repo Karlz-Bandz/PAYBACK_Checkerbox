@@ -11,7 +11,23 @@ public class StarterPack extends Starter
     @Override
     public void open()
     {
-
+        welcome();
+        scanner.nextLine();
+        boot.showCurrentCheckboard();
+        System.out.println("PRESS ENTER FOR THE NEXT 25 ROUNDS...");
+        scanner.nextLine();
+        shooter(1);
+        System.out.println("PRESS ENTER FOR THE NEXT 25 ROUNDS...");
+        scanner.nextLine();
+        shooter(1);
+        System.out.println("PRESS ENTER FOR THE NEXT 50 ROUNDS...");
+        scanner.nextLine();
+        shooter(2);
+        System.out.println("PRESS ENTER TO SEE LOGS...");
+        scanner.nextLine();
+        displayLogs();
+        System.out.println("PRESS ENTER TO STOP");
+        scanner.nextLine();
     }
 
     @Override
@@ -29,7 +45,7 @@ public class StarterPack extends Starter
                 "5 step ------------- program will shuffle the board next 50 times and\n" +
                 "does the same like in step 2\n" +
                 "Final extra step --- program will show the logs from each from 100 rounds\n\n" +
-                "PRESS ANY BUTTON TO START...");
+                "PRESS ENTER TO START...");
     }
 
     @Override

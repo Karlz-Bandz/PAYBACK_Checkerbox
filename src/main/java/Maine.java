@@ -4,6 +4,7 @@ public class Maine
 {
     public static void main(String[] args) throws Exception
     {
-
+               StarterPack starterPack = new StarterPack();
+               starterPack.open();
     }
 }
