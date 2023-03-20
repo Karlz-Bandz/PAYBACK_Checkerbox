@@ -7,7 +7,7 @@ import interfaces.Counter;
 import java.util.ArrayList;
 import java.util.List;
 
-/*
+/**
  * This class counts how many points are on the square with the MAX value
  * Checks coordinates of the MAX value
  * Sum all points on the checkbox.
