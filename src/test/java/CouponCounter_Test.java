@@ -123,7 +123,7 @@ public class CouponCounter_Test
 
         for (int i = 0; i < 25; i++)
         {
-            checkboardTest.shuffleBoard();
+            checkboardTest.shuffleCheckerboard();
         }
 
         int[][] testArr = checkboardTest.getCheckBoard();

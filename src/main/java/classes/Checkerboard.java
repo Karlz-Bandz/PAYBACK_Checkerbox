@@ -17,25 +17,24 @@ public class Checkerboard extends Board
 
     /**
      * This method refers to the methods<br>
-     * {@link Checkerboard#shuffleWalls() shuffleWalls}<br>
-     * {@link Checkerboard#shuffleCorners() shuffleCorners}<br>
-     * {@link Checkerboard#shuffleKernel() shuffleKernel}<br><br>
+     * {@link Checkerboard#shuffleWalls()}<br>
+     * {@link Checkerboard#shuffleCorners()}<br>
+     * {@link Checkerboard#shuffleKernel()}<br><br>
      *
      * As we know all of those methods at the end update the statement of
-     * {@link Checkerboard#helperArr helperArr} so when all methods
-     * are executed the {@link Checkerboard#helperArr helperArr} is ready to
-     * be used as the main array and is assign as the new {@link Checkerboard#checkerBoard checkerBoard}
+     * {@link Checkerboard#helperArr} so when all methods
+     * are executed the {@link Checkerboard#helperArr} is ready to
+     * be used as the main array and is assign as the new {@link Checkerboard#checkerBoard}
      * array.<br>
-     * At the end all values of {@link Checkerboard#helperArr helperArr} are set to 0
+     * At the end all values of {@link Checkerboard#helperArr} are set to 0
      * and the current {@link Checkerboard#checkerBoard} is returned.
      * <br><br>
      *
-     * @return the current checkerboard int[][]
+     * @return current checkerboard int[][]
      */
     @Override
-    public int[][] shuffleBoard()
+    public int[][] shuffleCheckerboard()
     {
-
         shuffleCorners();
         shuffleWalls();
         shuffleKernel();
@@ -47,16 +46,17 @@ public class Checkerboard extends Board
     }
 
     /**
-     * To protect all points located on the corners of checkerboard
-     * from falling out of checkerboard created an algorithm that change position
+     * To protect all points located on the checkerboard's corners
+     * from falling out of the checkerboard created an algorithm that change position
      * of each point in two random cases except two which could throw
      * the points out of the board.<br><br>
      *
-     * Next save all changes in {@link Checkerboard#helperArr helperArr}
+     * All changes are saved in {@link Checkerboard#helperArr}
      */
     @Override
     protected void shuffleCorners()
     {
+
         /*
          * Left-Top Corner
          */
@@ -132,11 +132,11 @@ public class Checkerboard extends Board
      * of each point in three random cases except the one which could throw
      * the points out of the board.<br><br>
      *
-     * Next save all changes in {@link Checkerboard#helperArr helperArr}<br><br>
+     * All changes are saved in {@link Checkerboard#helperArr helperArr}<br><br>
      *
      * In this method left the comments with threads
      * because with threads all methods together
-     * inside the {@link Checkerboard#shuffleBoard() shuffleBoard} generated some errors
+     * inside the {@link Checkerboard#shuffleCheckerboard()} generated some errors
      * with array values
      */
     @Override
@@ -258,12 +258,12 @@ public class Checkerboard extends Board
 
 
     /**
-     * In this peace of the checkerboard is not possible to fall by
+     * In this part of the checkerboard is not possible to fall by
      * any point out of the board so decided to iterate through
-     * every element end change position of each points in the
+     * every element and change position of each points in the
      * four random cases up, down, left or right<br><br>
      *
-     * Next save all changes in {@link Checkerboard#helperArr helperArr}
+     * All changes are saved in {@link Checkerboard#helperArr}
      */
     @Override
     protected void shuffleKernel()
