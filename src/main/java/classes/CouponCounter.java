@@ -8,22 +8,34 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * This class counts how many points are on the square with the MAX value
- * Checks coordinates of the MAX value
- * Sum all points on the checkbox.
+ * <strong>CouponCounter</strong> class<br><br>
+ * This class can:
+ * <ul>
+ *     <li>Get points are from the square with the MAX value</li>
+ *     <li>Get coordinates of the square with the MAX value</li>
+ *     <li>Sum all points located on the checkbox</li>
+ * </ul>
  *
  * However, each object of this class collects data in three different lists
- * allCouponSums, allMaxCouponValues and allMaxCouponCoordinates.
- * It helps to check how the states of values changes after many interactions.
+ * only/always when the {@link CouponCounter#checkAllRound(int[][]) checkAllRound} is used.<br>
+ * Those lists are below:<br>
+ * {@link CouponCounter#allCouponSums allCouponSums},<br>
+ * {@link CouponCounter#allMaxCouponValues allMaxCouponValues},<br>
+ * {@link CouponCounter#allMaxCouponCoordinates allMaxCouponCoordinates}<br>
+ * It helps to check how the states of values changes after each round.
+ * <br><br>
+ * @author Karol Melak
+ * @since 1.0
  */
 public class CouponCounter implements Counter
 {
 
+    /**
+    * Those {@link List lists} are needed to save and display logs
+     */
     private List<Integer> allCouponSums;
     private List<Integer> allMaxCouponValues;
     private List<Coordinate> allMaxCouponCoordinates;
-
-
 
     public CouponCounter()
     {
@@ -32,55 +44,63 @@ public class CouponCounter implements Counter
         allMaxCouponCoordinates = new ArrayList<>();
     }
 
+    /**
+     * @param checkerBoard
+     * @return sum of all checkerboard points
+     */
     @Override
-    public int sumCoupons(int[][] checkBoard)
+    public int sumCoupons(int[][] checkerBoard)
     {
-
-        int len = checkBoard.length;
+        int len = checkerBoard.length;
         int sum = 0;
-
 
         for (int i = 0; i < len; i++)
         {
             for (int j = 0; j < len; j++)
             {
-                if (checkBoard[i][j] != 0)
-                    for (int x = 0; x < checkBoard[i][j]; x++)
+                if (checkerBoard[i][j] != 0)
+                    for (int x = 0; x < checkerBoard[i][j]; x++)
                     {
                         sum += 1;
                     }
             }
         }
-        allCouponSums.add(sum);
 
         return sum;
     }
 
+    /**
+     * @param checkerBoard
+     * @return max value found in checkerboard
+     */
     @Override
-    public int findMAX(int[][] checkBoard)
+    public int findMAX(int[][] checkerBoard)
     {
-        int len = checkBoard.length;
+        int len = checkerBoard.length;
         int MAX_VAL = 0;
 
         for (int i = 0; i < len; i++)
         {
             for (int j = 0; j < len; j++)
             {
-                if(checkBoard[i][j] > MAX_VAL)
+                if(checkerBoard[i][j] > MAX_VAL)
                 {
-                    MAX_VAL = checkBoard[i][j];
+                    MAX_VAL = checkerBoard[i][j];
                 }
             }
         }
-        allMaxCouponValues.add(MAX_VAL);
 
         return MAX_VAL;
     }
 
+    /**
+     * @param checkerBoard
+     * @return {@link Coordinate} object
+     */
     @Override
-    public Coordinate findMAXCoordinates(int[][] checkBoard)
+    public Coordinate findMAXCoordinates(int[][] checkerBoard)
     {
-        int len = checkBoard.length;
+        int len = checkerBoard.length;
         int MAX_VAL = 0;
         int coordinateA = 0;
         int coordinateB = 0;
@@ -90,19 +110,38 @@ public class CouponCounter implements Counter
         {
             for (int j = 0; j < len; j++)
             {
-                if(checkBoard[i][j] > MAX_VAL)
+                if(checkerBoard[i][j] > MAX_VAL)
                 {
-                    MAX_VAL = checkBoard[i][j];
+                    MAX_VAL = checkerBoard[i][j];
                     coordinateA = i;
                     coordinateB = j;
                 }
             }
         }
         coordinate = new Coordinate(coordinateA, coordinateB);
-        allMaxCouponCoordinates.add(coordinate);
 
         return coordinate;
     }
+
+    /**
+     * This method refers to: <br>
+     * {@link CouponCounter#sumCoupons(int[][])},<br>
+     * {@link CouponCounter#findMAX(int[][])},<br>
+     * {@link CouponCounter#findMAXCoordinates(int[][])}<br><br>
+     *
+     * Next step saves all returned values in:<br>
+     * {@link CouponCounter#allCouponSums},<br>
+     * {@link CouponCounter#allMaxCouponValues},<br>
+     * {@link CouponCounter#allMaxCouponCoordinates}<br><br>
+     *
+     * At the end creates an object of {@link RoundData} class and adds
+     * to constructor all returned values by referred method too and returns
+     * {@link RoundData} object with the current round status.<br><br>
+     *
+     *
+     * @param checkBoard
+     * @return {@link RoundData} object
+     */
 
     @Override
     public RoundData checkAllRound(int[][] checkBoard)
@@ -111,6 +150,10 @@ public class CouponCounter implements Counter
         int max = findMAX(checkBoard);
         Coordinate coordinates = findMAXCoordinates(checkBoard);
 
+        allCouponSums.add(sum);
+        allMaxCouponValues.add(max);
+        allMaxCouponCoordinates.add(coordinates);
+
         RoundData roundData = new RoundData(sum,max,coordinates);
 
         return roundData;
@@ -118,6 +161,9 @@ public class CouponCounter implements Counter
 
 
 
+    /*
+    Getters section
+     */
     public List<Integer> getAllCouponSums()
     {
         return allCouponSums;

@@ -24,7 +24,6 @@ public abstract class Board
      * In the constructor all checkerboard squares are<br>
      * initialized with the value 1 that imitates the pointee ;)
      */
-
     public Board()
     {
         this.checkerBoard = new int[15][15];

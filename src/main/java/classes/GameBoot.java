@@ -4,6 +4,10 @@ import dto.Coordinate;
 import dto.RoundData;
 import interfaces.Boot;
 
+/**
+ * <strong>GameBoot</strong> class<br>
+ */
+
 public class GameBoot implements Boot
 {
     private Checkerboard checkerboard;
@@ -21,17 +25,21 @@ public class GameBoot implements Boot
         return round;
     }
 
-    /*
-    * This method simulates rounds in three different cases'
-    * case 1 - 25 rounds
-    * case 2 - 50 rounds
-    * case 3 - 100 rounds
-    *
+    /**
+    * <strong>This method simulates rounds in three different cases'</strong><br>
+     * <ul>
+     *     <li>case 1 - 25 rounds</li>
+     *     <li>case 2 - 50 rounds</li>
+     *     <li>case 3 - 100 rounds</li>
+     * </ul>
     * When simulation has been finished method returns data with
-    * all informations about points.
+    * all informations about points.<br><br>
     *
-    * In cases except 1,2 and 3 method does nothing and returns
-    * RoundData object with all data set with null
+    * <strong>In all cases except 1,2 and 3 method does nothing and returns
+    * RoundData object with all data set on null</strong>
+     * <br><br>
+     * @param Fall
+     * @return {@link RoundData} object
      */
     @Override
     public RoundData bootTheGame(int Fall)
