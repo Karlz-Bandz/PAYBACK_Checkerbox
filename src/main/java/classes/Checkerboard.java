@@ -8,7 +8,6 @@ package classes;
  * @author Karol Melak
  * @since 1.0
  */
-
 public class Checkerboard extends Board
 {
     public Checkerboard()
@@ -17,7 +16,7 @@ public class Checkerboard extends Board
     }
 
     /**
-     * This method stick together methods<br>
+     * This method refers to the methods<br>
      * {@link Checkerboard#shuffleWalls() shuffleWalls}<br>
      * {@link Checkerboard#shuffleCorners() shuffleCorners}<br>
      * {@link Checkerboard#shuffleKernel() shuffleKernel}<br><br>
@@ -27,8 +26,11 @@ public class Checkerboard extends Board
      * are executed the {@link Checkerboard#helperArr helperArr} is ready to
      * be used as the main array and is assign as the new {@link Checkerboard#checkerBoard checkerBoard}
      * array.<br>
-     * At the end all values of {@link Checkerboard#helperArr helperArr} are set on 0 <br>
-     * and is returned the current shuffled board.
+     * At the end all values of {@link Checkerboard#helperArr helperArr} are set to 0
+     * and the current {@link Checkerboard#checkerBoard} is returned.
+     * <br><br>
+     *
+     * @return the current checkerboard int[][]
      */
     @Override
     public int[][] shuffleBoard()
@@ -132,7 +134,7 @@ public class Checkerboard extends Board
      *
      * Next save all changes in {@link Checkerboard#helperArr helperArr}<br><br>
      *
-     * In this method I left the comments with threads
+     * In this method left the comments with threads
      * because with threads all methods together
      * inside the {@link Checkerboard#shuffleBoard() shuffleBoard} generated some errors
      * with array values
