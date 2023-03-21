@@ -6,8 +6,13 @@ import interfaces.Boot;
 
 /**
  * <strong>GameBoot</strong> class<br>
+ * In this class are injected two another classes {@link Checkerboard} and {@link CouponCounter}.
+ * This fact allows to create many interesting operations like the method {@link GameBoot#bootTheGame(int)}
+ * does.<br>
+ * This class also helps to control the application in higher level<br><br>
+ * @author Karol Melak
+ * @since 1.0
  */
-
 public class GameBoot implements Boot
 {
     private Checkerboard checkerboard;
@@ -112,7 +117,6 @@ public class GameBoot implements Boot
 
         return logBuilder.toString();
     }
-
 
     /*
     * This method doesn't work on any IDE terminal. To see how it works you

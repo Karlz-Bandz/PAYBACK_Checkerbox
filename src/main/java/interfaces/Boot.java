@@ -2,7 +2,6 @@ package interfaces;
 
 import dto.RoundData;
 
-
 /**
  * <strong>Boot</strong> interface<br>
  * It is implemented by {@link classes.GameBoot GameBoot} class that is responsible for
