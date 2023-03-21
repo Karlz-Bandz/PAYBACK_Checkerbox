@@ -291,15 +291,4 @@ public class Checkerboard extends Board
             }
         }
     }
-
-
-    public int[][] getCheckBoard()
-    {
-        return this.checkerBoard;
-    }
-
-    public int[][] getHelperArr()
-    {
-        return this.helperArr;
-    }
 }

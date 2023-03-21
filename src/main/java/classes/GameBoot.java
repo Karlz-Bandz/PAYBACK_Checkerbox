@@ -6,13 +6,19 @@ import interfaces.Boot;
 
 /**
  * <strong>GameBoot</strong> class<br>
+ * In this class are injected two another classes {@link Checkerboard} and {@link CouponCounter}.
+ * This fact allows to create many interesting operations like the method {@link GameBoot#bootTheGame(int)}
+ * does.<br>
+ * This class also helps to control the application in higher level<br><br>
+ * @author Karol Melak
+ * @since 1.0
  */
-
 public class GameBoot implements Boot
 {
     private Checkerboard checkerboard;
     private CouponCounter couponCounter;
     private int round = 0;
+    private int playerCollectedCoupons = 0;
 
     public GameBoot()
     {
@@ -34,6 +40,11 @@ public class GameBoot implements Boot
      * </ul>
     * When simulation has been finished method returns data with
     * all informations about points.<br><br>
+     *
+     * <strong>Important</strong><br>
+     * To simulate that user can collect the coupons after 25, 50 and round
+     * in this method created simulation that collect maximum value from the
+     * checkerboard after 25, 50 and 100 round<br><br>
     *
     * <strong>In all cases except 1,2 and 3 method does nothing and returns
     * RoundData object with all data set on null</strong>
@@ -63,15 +74,22 @@ public class GameBoot implements Boot
          round++;
          lastRoundData = couponCounter.checkAllRound(checkerboard.shuffleBoard());
 
-
-         showCurrentCheckboard();
+         showCurrentCheckerboard();
         }
+
+        int[][] arrayToModify = checkerboard.getCheckBoard();
+        playerCollectedCoupons += lastRoundData.getMAX();
+        arrayToModify[lastRoundData.getCoordinates().getCoordinateA()][lastRoundData.getCoordinates().getCoordinateB()] = 0;
+        checkerboard.setCheckerBoard(arrayToModify);
 
         return lastRoundData;
     }
 
-    @Override
-    public int[][] showCurrentCheckboard()
+    /**
+     * This method displays the current checkerboard and also returns the current checkerboard<br>
+     * @return current checkerboard
+     */
+    public int[][] showCurrentCheckerboard()
     {
         clearConsole();
         int[][] currentBoard = checkerboard.getCheckBoard();
@@ -88,7 +106,7 @@ public class GameBoot implements Boot
         return currentBoard;
     }
 
-    /*
+    /**
     * This function displays current logs of all rounds
     * in suitable format in console
      */
@@ -113,8 +131,7 @@ public class GameBoot implements Boot
         return logBuilder.toString();
     }
 
-
-    /*
+    /**
     * This method doesn't work on any IDE terminal. To see how it works you
     * have to run code on the local PC Terminal
      */
@@ -130,5 +147,10 @@ public class GameBoot implements Boot
         } catch (Exception e) {
             System.out.println("Error occurred while clearing console: " + e.getMessage());
         }
+    }
+
+    public int getPlayerCollectedCoupons()
+    {
+        return playerCollectedCoupons;
     }
 }

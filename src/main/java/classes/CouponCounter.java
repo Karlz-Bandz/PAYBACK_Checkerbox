@@ -142,7 +142,6 @@ public class CouponCounter implements Counter
      * @param checkBoard
      * @return {@link RoundData} object
      */
-
     @Override
     public RoundData checkAllRound(int[][] checkBoard)
     {
@@ -150,18 +149,16 @@ public class CouponCounter implements Counter
         int max = findMAX(checkBoard);
         Coordinate coordinates = findMAXCoordinates(checkBoard);
 
-        allCouponSums.add(sum);
-        allMaxCouponValues.add(max);
-        allMaxCouponCoordinates.add(coordinates);
+            allCouponSums.add(sum);
+            allMaxCouponValues.add(max);
+            allMaxCouponCoordinates.add(coordinates);
 
-        RoundData roundData = new RoundData(sum,max,coordinates);
+            RoundData roundData = new RoundData(sum,max,coordinates);
 
         return roundData;
     }
 
-
-
-    /*
+    /**
     Getters section
      */
     public List<Integer> getAllCouponSums()

@@ -45,4 +45,19 @@ public abstract class Board
     protected abstract void shuffleKernel();
 
     public abstract int[][] shuffleBoard();
+
+    public void setCheckerBoard(int[][] checkerBoard)
+    {
+        this.checkerBoard = checkerBoard;
+    }
+
+    public int[][] getCheckBoard()
+    {
+        return this.checkerBoard;
+    }
+
+    public int[][] getHelperArr()
+    {
+        return this.helperArr;
+    }
 }
