@@ -111,7 +111,7 @@ public class CheckerBoard_Test
         Checkerboard checkboardTest = new Checkerboard();
 
         int allExpectedPoints = 225;
-        int[][] test = checkboardTest.shuffleBoard();
+        int[][] test = checkboardTest.shuffleCheckerboard();
         int allGeneratedPoints = pointerCounter(test);
 
 
@@ -119,11 +119,11 @@ public class CheckerBoard_Test
 
         for (int i = 0; i < 20; i++)
         {
-            checkboardTest.shuffleBoard();
+            checkboardTest.shuffleCheckerboard();
 
         }
 
-        test = checkboardTest.shuffleBoard();
+        test = checkboardTest.shuffleCheckerboard();
         allGeneratedPoints = pointerCounter(test);
 
         displayer(test);

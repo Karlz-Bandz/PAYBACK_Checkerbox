@@ -72,7 +72,7 @@ public class GameBoot implements Boot
         {
             clearConsole();
          round++;
-         lastRoundData = couponCounter.checkAllRound(checkerboard.shuffleBoard());
+         lastRoundData = couponCounter.checkAllRound(checkerboard.shuffleCheckerboard());
 
          showCurrentCheckerboard();
         }

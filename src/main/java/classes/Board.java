@@ -1,14 +1,13 @@
 package classes;
 
-
 /**
  * <strong>Board</strong> abstract class
- * <p>The core of application. From this class {@link Checkerboard Checkerboard} inherits</p>
+ * <p>The core of application. From this abstract class {@link Checkerboard Checkerboard} inherits</p>
  * <p>Here we can find very important methods like <br>
- * {@link Board#shuffleWalls() shuffleWalls}<br>
- * {@link Board#shuffleCorners() shuffleCorners}<br>
- * {@link Board#shuffleKernel() shuffleKernel}<br>
- * {@link Board#shuffleBoard() shuffleBoard}<br></p>
+ * {@link Board#shuffleWalls()}<br>
+ * {@link Board#shuffleCorners()}<br>
+ * {@link Board#shuffleKernel()}<br>
+ * {@link Board#shuffleCheckerboard()}<br></p><br>
  *
  * @author Karol Melak
  * @since 1.0
@@ -44,7 +43,7 @@ public abstract class Board
 
     protected abstract void shuffleKernel();
 
-    public abstract int[][] shuffleBoard();
+    public abstract int[][] shuffleCheckerboard();
 
     public void setCheckerBoard(int[][] checkerBoard)
     {
