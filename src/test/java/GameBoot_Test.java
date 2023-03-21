@@ -64,12 +64,12 @@ public class GameBoot_Test
 
         System.out.println("\nShowCurrentCheckboard_Test\n");
         System.out.println("Init Checkboard:\n");
-        gameBoot.showCurrentCheckboard();
+        gameBoot.showCurrentCheckerboard();
 
 
         RoundData testData = gameBoot.bootTheGame(1);
         System.out.println("\nCheckboard after 25 rounds:\n");
-        gameBoot.showCurrentCheckboard();
+        gameBoot.showCurrentCheckerboard();
         System.out.println();
 
         int expectedPoints = 225;

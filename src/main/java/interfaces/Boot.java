@@ -13,7 +13,7 @@ public interface Boot
 {
    RoundData bootTheGame(int Fall);
 
-   int[][] showCurrentCheckboard();
+   int[][] showCurrentCheckerboard();
 
    String displayAllRoundLogs();
 }
