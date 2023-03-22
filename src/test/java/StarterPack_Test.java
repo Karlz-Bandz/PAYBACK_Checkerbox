@@ -14,7 +14,6 @@ public class StarterPack_Test
         welcomeMethodTest.setAccessible(true);
 
         welcomeMethodTest.invoke(testStarter);
-
     }
 
     @Test

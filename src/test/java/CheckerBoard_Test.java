@@ -6,40 +6,6 @@ import java.lang.reflect.Method;
 
 public class CheckerBoard_Test
 {
-    private int pointerCounter(int[][] testedArray)
-    {
-
-        int allPointCounter = 0;
-
-        for (int i = 0; i < 15; i++)
-        {
-            for (int j = 0; j < 15; j++)
-            {
-
-                if (testedArray[i][j] != 0)
-                {
-                    for (int x = 0; x < testedArray[i][j]; x++)
-                        allPointCounter += 1;
-                }
-            }
-
-        }
-        return allPointCounter;
-    }
-
-    private void displayer(int[][] testedArray)
-    {
-        for (int i = 0; i < 15; i++)
-        {
-            for (int j = 0; j < 15; j++)
-            {
-                System.out.print(testedArray[i][j]);
-            }
-            System.out.println();
-        }
-    }
-
-
     @Test
     public void ShuffleCorners_Test() throws Exception
     {
@@ -86,7 +52,6 @@ public class CheckerBoard_Test
     @Test
     public void ShuffleKernel_Test() throws Exception
     {
-
         Checkerboard checkboardTest = new Checkerboard();
 
         Method shuffleKernelTest = Checkerboard.class.getDeclaredMethod("shuffleKernel");
@@ -129,5 +94,35 @@ public class CheckerBoard_Test
         displayer(test);
 
         Assertions.assertEquals(allExpectedPoints, allGeneratedPoints);
+    }
+
+    private int pointerCounter(int[][] testedArray)
+    {
+        int allPointCounter = 0;
+
+        for (int i = 0; i < 15; i++)
+        {
+            for (int j = 0; j < 15; j++)
+            {
+                if (testedArray[i][j] != 0)
+                {
+                    for (int x = 0; x < testedArray[i][j]; x++)
+                        allPointCounter += 1;
+                }
+            }
+        }
+        return allPointCounter;
+    }
+
+    private void displayer(int[][] testedArray)
+    {
+        for (int i = 0; i < 15; i++)
+        {
+            for (int j = 0; j < 15; j++)
+            {
+                System.out.print(testedArray[i][j]);
+            }
+            System.out.println();
+        }
     }
 }

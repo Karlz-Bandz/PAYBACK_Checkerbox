@@ -2,7 +2,6 @@ package dto;
 
 public class Coordinate
 {
-
     private int coordinateA;
     private int coordinateB;
 

@@ -126,7 +126,7 @@ public class CouponCounter_Test
             checkboardTest.shuffleCheckerboard();
         }
 
-        int[][] testArr = checkboardTest.getCheckBoard();
+        int[][] testArr = checkboardTest.getCheckerBoard();
         sum = couponCounterTest.sumCoupons(testArr);
 
         Assertions.assertEquals(sum, expectedSum);

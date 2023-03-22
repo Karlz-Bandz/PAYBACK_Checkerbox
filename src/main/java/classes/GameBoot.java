@@ -1,6 +1,5 @@
 package classes;
 
-import dto.Coordinate;
 import dto.RoundData;
 import interfaces.Boot;
 
@@ -9,7 +8,7 @@ import interfaces.Boot;
  * In this class are injected two another classes {@link Checkerboard} and {@link CouponCounter}.
  * This fact allows to create many interesting operations like the method {@link GameBoot#bootTheGame(int)}
  * does.<br>
- * This class also helps to control the application in higher level<br><br>
+ * This class also helps to control the application in a higher level<br><br>
  * @author Karol Melak
  * @since 1.0
  */
@@ -26,11 +25,6 @@ public class GameBoot implements Boot
         couponCounter = new CouponCounter();
     }
 
-    public int getRound()
-    {
-        return round;
-    }
-
     /**
     * <strong>This method simulates rounds in three different cases'</strong><br>
      * <ul>
@@ -42,7 +36,7 @@ public class GameBoot implements Boot
     * all informations about points.<br><br>
      *
      * <strong>Important</strong><br>
-     * To simulate that user can collect the coupons after 25, 50 and round
+     * To simulate that user can collect the coupons after 25, 50 and 100 round
      * in this method created simulation that collect maximum value from the
      * checkerboard after 25, 50 and 100 round<br><br>
     *
@@ -55,6 +49,7 @@ public class GameBoot implements Boot
     @Override
     public RoundData bootTheGame(int Fall)
     {
+        RoundData lastRoundData = new RoundData();
         int looprVal = 0;
 
         if(Fall == 1)
@@ -64,35 +59,37 @@ public class GameBoot implements Boot
         else if(Fall == 3)
             looprVal = 100;
         else
-        return new RoundData(0,0,new Coordinate(0,0));
-
-        RoundData lastRoundData = new RoundData(0,0, new Coordinate(0,0));
+        return lastRoundData;
 
         for(int i = 0; i < looprVal; i++)
         {
-            clearConsole();
-         round++;
-         lastRoundData = couponCounter.checkAllRound(checkerboard.shuffleCheckerboard());
+            round++;
+            lastRoundData = couponCounter.checkAllRound(checkerboard.shuffleCheckerboard());
 
-         showCurrentCheckerboard();
+            showCurrentCheckerboard();
         }
 
-        int[][] arrayToModify = checkerboard.getCheckBoard();
+        int A = lastRoundData.getCoordinates().getCoordinateA();
+        int B = lastRoundData.getCoordinates().getCoordinateB();
+        int[][] arrayToModify = checkerboard.getCheckerBoard();
+
         playerCollectedCoupons += lastRoundData.getMAX();
-        arrayToModify[lastRoundData.getCoordinates().getCoordinateA()][lastRoundData.getCoordinates().getCoordinateB()] = 0;
+        arrayToModify[A][B] = 0;
         checkerboard.setCheckerBoard(arrayToModify);
 
         return lastRoundData;
     }
 
     /**
-     * This method displays the current checkerboard and also returns the current checkerboard<br>
+     * This method clear window, after displays the current checkerboard and also returns<br>
+     * the current checkerboard<br><br>
      * @return current checkerboard
      */
     public int[][] showCurrentCheckerboard()
     {
         clearConsole();
-        int[][] currentBoard = checkerboard.getCheckBoard();
+
+        int[][] currentBoard = checkerboard.getCheckerBoard();
 
         for(int i = 0; i < currentBoard.length; i++)
         {
@@ -102,13 +99,12 @@ public class GameBoot implements Boot
             }
             System.out.println();
         }
-
         return currentBoard;
     }
 
     /**
-    * This function displays current logs of all rounds
-    * in suitable format in console
+    * This method displays current logs of all rounds
+    * in suitable format in a console window
      */
     @Override
     public String displayAllRoundLogs()
@@ -152,5 +148,9 @@ public class GameBoot implements Boot
     public int getPlayerCollectedCoupons()
     {
         return playerCollectedCoupons;
+    }
+    public int getRound()
+    {
+        return round;
     }
 }
