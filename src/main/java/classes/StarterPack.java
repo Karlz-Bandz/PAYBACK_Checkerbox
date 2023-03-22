@@ -15,7 +15,8 @@ public class StarterPack extends Starter
     }
 
     /**
-     * This method is responsible for display opening message.
+     * This method refers to all methods inside this class and set the
+     * default configuration of application
      */
     @Override
     public void open()
@@ -61,7 +62,7 @@ public class StarterPack extends Starter
     }
 
     /**
-     * This method firs shuffle the checkerboard in on of 1 to 3 cases. Everything is explained
+     * This method first shuffle the checkerboard in on of 1 to 3 cases. Everything is explained
      * in {@link GameBoot#bootTheGame(int)} documentation.<br>
      * When the checkerboard stop to shuffle, method displays information about the
      * current status of round<br>
