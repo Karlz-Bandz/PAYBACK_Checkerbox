@@ -1,4 +1,4 @@
-# PAYBACK_Checker
+# PAYBACK_Checkerboard
 
 
 This checkbox application is the PAYBACK recruitment task.
