@@ -56,74 +56,10 @@ public class Checkerboard extends Board
     @Override
     protected void shuffleCorners()
     {
-
-        /*
-         * Left-Top Corner
-         */
-        int firstCorner = checkerBoard[0][0];
-
-        if (firstCorner > 0)
-        {
-            for (int i = 0; i < firstCorner; i++)
-            {
-                int rnd = rand.nextInt(2) + 2;
-                if (rnd == 2)
-                    helperArr[0][1] += 1;
-                else if (rnd == 3)
-                    helperArr[1][0] += 1;
-            }
-        }
-
-        /*
-         * Right-Top Corner
-         */
-        int secondCorner = checkerBoard[0][14];
-
-        if (secondCorner > 0)
-        {
-            for (int i = 0; i < secondCorner; i++)
-            {
-                int rnd = rand.nextInt(2) + 3;
-                if (rnd == 3)
-                    helperArr[1][14] += 1;
-                else if (rnd == 4)
-                    helperArr[0][13] += 1;
-            }
-        }
-
-        /*
-         * Left-Down Corner
-         */
-        int thirdCorner = checkerBoard[14][0];
-
-        if (thirdCorner > 0)
-        {
-            for (int i = 0; i < thirdCorner; i++)
-            {
-                int rnd = rand.nextInt(2) + 1;
-                if (rnd == 1)
-                    helperArr[13][0] += 1;
-                else if (rnd == 2)
-                    helperArr[14][1] += 1;
-            }
-        }
-
-        /*
-         * Right-Down Corner
-         */
-        int fourCorner = checkerBoard[14][14];
-
-        if (fourCorner > 0)
-        {
-            for (int i = 0; i < fourCorner; i++)
-            {
-                int rnd = rand.nextInt(2) + 1;
-                if (rnd == 1)
-                    helperArr[13][14] += 1;
-                else if (rnd == 2)
-                    helperArr[14][13] += 1;
-            }
-        }
+         rtCorner();
+         ltCorner();
+         rdCorner();
+         ldCorner();
     }
 
     /**
@@ -142,107 +78,28 @@ public class Checkerboard extends Board
     @Override
     protected void shuffleWalls()
     {
-        /*
-         * TOP
-         */
-//        Runnable loop1 = new Runnable() {
+//            Runnable loop1 = new Runnable() {
 //            @Override
 //            public void run() {
-        for (int i = 1; i < 14; i++)
-        {
-            if (checkerBoard[0][i] != 0)
-            {
-                for (int j = 0; j < checkerBoard[0][i]; j++)
-                {
-                    int rander = rand.nextInt(3);
-
-                    if (rander == 0)
-                        helperArr[0][i - 1] += 1;
-                    else if (rander == 1)
-                        helperArr[1][i] += 1;
-                    else if (rander == 2)
-                        helperArr[0][i + 1] += 1;
-                }
-            }
-        }
+                 shuffleTopWall();
 //            }
 //        };
-
-        /*
-         * BOTTOM
-         */
 //        Runnable loop2 = new Runnable() {
 //            @Override
 //            public void run() {
-        for (int i = 1; i < 14; i++)
-        {
-            if (checkerBoard[14][i] != 0)
-            {
-                for (int j = 0; j < checkerBoard[14][i]; j++)
-                {
-                    int rander = rand.nextInt(3);
-
-                    if (rander == 0)
-                        helperArr[14][i - 1] += 1;
-                    else if (rander == 1)
-                        helperArr[13][i] += 1;
-                    else if (rander == 2)
-                        helperArr[14][i + 1] += 1;
-                }
-            }
-        }
+                shuffleBottomWall();
 //            }
 //        };
-
-        /*
-         * LEFT
-         */
 //        Runnable loop3 = new Runnable() {
 //            @Override
 //            public void run() {
-        for (int i = 1; i < 14; i++)
-        {
-            if (checkerBoard[i][0] != 0)
-            {
-                for (int j = 0; j < checkerBoard[i][0]; j++)
-                {
-                    int rander = rand.nextInt(3);
-
-                    if (rander == 0)
-                        helperArr[i - 1][0] += 1;
-                    else if (rander == 1)
-                        helperArr[i][1] += 1;
-                    else if (rander == 2)
-                        helperArr[i + 1][0] += 1;
-                }
-            }
-        }
+                shuffleLeftWall();
 //            }
 //        };
-
-        /*
-         * RIGHT
-         */
 //        Runnable loop4 = new Runnable() {
 //            @Override
 //            public void run() {
-        for (int i = 1; i < 14; i++)
-        {
-            if (checkerBoard[i][14] != 0)
-            {
-                for (int j = 0; j < checkerBoard[i][14]; j++)
-                {
-                    int rander = rand.nextInt(3);
-
-                    if (rander == 0)
-                        helperArr[i - 1][14] += 1;
-                    else if (rander == 1)
-                        helperArr[i][13] += 1;
-                    else if (rander == 2)
-                        helperArr[i + 1][14] += 1;
-                }
-            }
-        }
+                 shuffleRightWall();
 //            }
 //        };
 //        Thread thread1 = new Thread(loop1);
@@ -255,7 +112,6 @@ public class Checkerboard extends Board
 //        thread3.start();
 //        thread4.start();
     }
-
 
     /**
      * In this part of the checkerboard is not possible to fall by
@@ -288,6 +144,166 @@ public class Checkerboard extends Board
                             helperArr[i - 1][j] += 1;
                     }
                 }
+            }
+        }
+    }
+
+    @Override
+    protected void shuffleTopWall()
+    {
+        for (int i = 1; i < 14; i++)
+        {
+            if (checkerBoard[0][i] != 0)
+            {
+                for (int j = 0; j < checkerBoard[0][i]; j++)
+                {
+                    int rander = rand.nextInt(3);
+
+                    if (rander == 0)
+                        helperArr[0][i - 1] += 1;
+                    else if (rander == 1)
+                        helperArr[1][i] += 1;
+                    else if (rander == 2)
+                        helperArr[0][i + 1] += 1;
+                }
+            }
+        }
+    }
+
+    @Override
+    protected void shuffleBottomWall()
+    {
+        for (int i = 1; i < 14; i++)
+        {
+            if (checkerBoard[14][i] != 0)
+            {
+                for (int j = 0; j < checkerBoard[14][i]; j++)
+                {
+                    int rander = rand.nextInt(3);
+
+                    if (rander == 0)
+                        helperArr[14][i - 1] += 1;
+                    else if (rander == 1)
+                        helperArr[13][i] += 1;
+                    else if (rander == 2)
+                        helperArr[14][i + 1] += 1;
+                }
+            }
+        }
+    }
+
+    @Override
+    protected void shuffleLeftWall()
+    {
+        for (int i = 1; i < 14; i++)
+        {
+            if (checkerBoard[i][0] != 0)
+            {
+                for (int j = 0; j < checkerBoard[i][0]; j++)
+                {
+                    int rander = rand.nextInt(3);
+
+                    if (rander == 0)
+                        helperArr[i - 1][0] += 1;
+                    else if (rander == 1)
+                        helperArr[i][1] += 1;
+                    else if (rander == 2)
+                        helperArr[i + 1][0] += 1;
+                }
+            }
+        }
+    }
+
+    @Override
+    protected void shuffleRightWall()
+    {
+        for (int i = 1; i < 14; i++)
+        {
+            if (checkerBoard[i][14] != 0)
+            {
+                for (int j = 0; j < checkerBoard[i][14]; j++)
+                {
+                    int rander = rand.nextInt(3);
+
+                    if (rander == 0)
+                        helperArr[i - 1][14] += 1;
+                    else if (rander == 1)
+                        helperArr[i][13] += 1;
+                    else if (rander == 2)
+                        helperArr[i + 1][14] += 1;
+                }
+            }
+        }
+    }
+
+    @Override
+    protected void ltCorner()
+    {
+        int firstCorner = checkerBoard[0][0];
+
+        if (firstCorner > 0)
+        {
+            for (int i = 0; i < firstCorner; i++)
+            {
+                int rnd = rand.nextInt(2) + 2;
+                if (rnd == 2)
+                    helperArr[0][1] += 1;
+                else if (rnd == 3)
+                    helperArr[1][0] += 1;
+            }
+        }
+    }
+
+    @Override
+    protected void rtCorner()
+    {
+        int secondCorner = checkerBoard[0][14];
+
+        if (secondCorner > 0)
+        {
+            for (int i = 0; i < secondCorner; i++)
+            {
+                int rnd = rand.nextInt(2) + 3;
+                if (rnd == 3)
+                    helperArr[1][14] += 1;
+                else if (rnd == 4)
+                    helperArr[0][13] += 1;
+            }
+        }
+    }
+
+    @Override
+    protected void ldCorner()
+    {
+        int thirdCorner = checkerBoard[14][0];
+
+        if (thirdCorner > 0)
+        {
+            for (int i = 0; i < thirdCorner; i++)
+            {
+                int rnd = rand.nextInt(2) + 1;
+                if (rnd == 1)
+                    helperArr[13][0] += 1;
+                else if (rnd == 2)
+                    helperArr[14][1] += 1;
+            }
+        }
+    }
+
+    @Override
+    protected void rdCorner()
+    {
+        int fourCorner = checkerBoard[14][14];
+
+        if (fourCorner > 0)
+        {
+            for (int i = 0; i < fourCorner; i++)
+            {
+                int rnd = rand.nextInt(2) + 1;
+                if (rnd == 1)
+                    helperArr[13][14] += 1;
+                else if (rnd == 2)
+                    helperArr[14][13] += 1;
             }
         }
     }
