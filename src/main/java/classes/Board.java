@@ -37,13 +37,29 @@ public abstract class Board
         }
     }
 
+    public abstract int[][] shuffleCheckerboard();
+
     protected abstract void shuffleCorners();
 
     protected abstract void shuffleWalls();
 
     protected abstract void shuffleKernel();
 
-    public abstract int[][] shuffleCheckerboard();
+    protected abstract void shuffleTopWall();
+
+    protected abstract void shuffleBottomWall();
+
+    protected abstract void shuffleLeftWall();
+
+    protected abstract void shuffleRightWall();
+
+    protected abstract void ltCorner();
+
+    protected abstract void rtCorner();
+
+    protected abstract void ldCorner();
+
+    protected abstract void rdCorner();
 
     public void setCheckerBoard(int[][] checkerBoard)
     {

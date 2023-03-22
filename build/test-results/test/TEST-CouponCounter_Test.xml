@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="CouponCounter_Test" tests="4" skipped="0" failures="0" errors="0" timestamp="2023-03-22T10:33:40" hostname="WPLKM250542-F0V" time="0.053">
+  <properties/>
+  <testcase name="SumCoupons_Test()" classname="CouponCounter_Test" time="0.03"/>
+  <testcase name="FindMAXCoordinates_Test()" classname="CouponCounter_Test" time="0.005"/>
+  <testcase name="FindMAX_Test()" classname="CouponCounter_Test" time="0.001"/>
+  <testcase name="CheckAllRound_Test()" classname="CouponCounter_Test" time="0.014"/>
+  <system-out><![CDATA[CheckAllRound_Test
+[12, 1] 
+[81]
+[44]
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
