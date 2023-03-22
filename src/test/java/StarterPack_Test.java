@@ -3,6 +3,10 @@ import org.junit.jupiter.api.Test;
 
 import java.lang.reflect.Method;
 
+
+/**
+ * <strong>StarterPack_Test</strong>
+ */
 public class StarterPack_Test
 {
     StarterPack testStarter = new StarterPack();
@@ -10,10 +14,9 @@ public class StarterPack_Test
     @Test
     public void DisplayLogs_Test() throws Exception
     {
-        Method welcomeMethodTest = StarterPack.class.getDeclaredMethod("displayLogs");
-        welcomeMethodTest.setAccessible(true);
-
-        welcomeMethodTest.invoke(testStarter);
+        Method displayLogsTest = StarterPack.class.getDeclaredMethod("displayLogs");
+        displayLogsTest.setAccessible(true);
+        displayLogsTest.invoke(testStarter);
     }
 
     @Test
@@ -21,7 +24,6 @@ public class StarterPack_Test
     {
         Method welcomeMethodTest = StarterPack.class.getDeclaredMethod("shooter", int.class);
         welcomeMethodTest.setAccessible(true);
-
         welcomeMethodTest.invoke(testStarter, 1);
     }
 
@@ -30,7 +32,6 @@ public class StarterPack_Test
     {
         Method welcomeMethodTest = StarterPack.class.getDeclaredMethod("welcome");
         welcomeMethodTest.setAccessible(true);
-
         welcomeMethodTest.invoke(testStarter);
     }
 }

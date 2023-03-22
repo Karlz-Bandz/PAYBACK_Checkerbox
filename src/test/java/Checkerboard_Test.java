@@ -4,25 +4,28 @@ import org.junit.jupiter.api.Test;
 
 import java.lang.reflect.Method;
 
-public class CheckerBoard_Test
+/**
+ * <strong>Checkerboard_Test</strong>
+ */
+public class Checkerboard_Test
 {
+    private Checkerboard checkerboardTest = new Checkerboard();
+
     @Test
     public void ShuffleCorners_Test() throws Exception
     {
-        Checkerboard checkboardTest = new Checkerboard();
-
         Method shuffleCornerTest = Checkerboard.class.getDeclaredMethod("shuffleCorners");
         shuffleCornerTest.setAccessible(true);
 
-        shuffleCornerTest.invoke(checkboardTest);
+        shuffleCornerTest.invoke(checkerboardTest);
 
-        int[][] testHelper = checkboardTest.getHelperArr();
+        int[][] testHelper = checkerboardTest.getHelperArr();
         int allPointCounter = pointerCounter(testHelper);
         int allExpectedPoints = 4;
 
         /*
-         * This test check if some value is not disappeared
-         * during the algorithm is processing
+         * This test check if some value was not disappeared
+         * during the algorithm was processing
          */
         Assertions.assertEquals(allPointCounter, allExpectedPoints);
     }
@@ -30,21 +33,18 @@ public class CheckerBoard_Test
     @Test
     public void ShuffleWalls_Test() throws Exception
     {
-
-        Checkerboard checkboardTest1 = new Checkerboard();
-
         Method shuffleWallsTest = Checkerboard.class.getDeclaredMethod("shuffleWalls");
         shuffleWallsTest.setAccessible(true);
 
-        shuffleWallsTest.invoke(checkboardTest1);
+        shuffleWallsTest.invoke(checkerboardTest);
 
-        int[][] testing = checkboardTest1.getHelperArr();
+        int[][] testing = checkerboardTest.getHelperArr();
         int allExpectedPoints = 52;
         int allGeneratedPoints = pointerCounter(testing);
 
         /*
-         * This test check if some value is not disappeared
-         * during the algorithm is processing
+         * This test check if some value was not disappeared
+         * during the algorithm was processing
          */
         Assertions.assertEquals(allExpectedPoints, allGeneratedPoints);
     }
@@ -52,47 +52,49 @@ public class CheckerBoard_Test
     @Test
     public void ShuffleKernel_Test() throws Exception
     {
-        Checkerboard checkboardTest = new Checkerboard();
-
         Method shuffleKernelTest = Checkerboard.class.getDeclaredMethod("shuffleKernel");
         shuffleKernelTest.setAccessible(true);
 
-        shuffleKernelTest.invoke(checkboardTest);
+        shuffleKernelTest.invoke(checkerboardTest);
 
-        int[][] testBoardKernel = checkboardTest.getHelperArr();
+        int[][] testBoardKernel = checkerboardTest.getHelperArr();
         int allExpectedPoints = 169;
         int allGeneratedPoints = pointerCounter(testBoardKernel);
 
         /*
-         * This test check if some value is not disappeared
-         * during the algorithm is processing
+         * This test check if some value was not disappeared
+         * during the algorithm was processing
          */
         Assertions.assertEquals(allExpectedPoints, allGeneratedPoints);
     }
 
+    /**
+     * This test is very important because the {@link Checkerboard#shuffleCheckerboard()} method
+     * refers to all methods inside the {@link Checkerboard}. That means if the test is passed
+     * everything else should be correct
+     */
     @Test
-    public void ShuffleBoard_Test()
+    public void ShuffleCheckerboard_Test()
     {
-        Checkerboard checkboardTest = new Checkerboard();
+        Checkerboard checkerboardMainTest = new Checkerboard();
 
         int allExpectedPoints = 225;
-        int[][] test = checkboardTest.shuffleCheckerboard();
+        int[][] test = checkerboardMainTest.shuffleCheckerboard();
         int allGeneratedPoints = pointerCounter(test);
 
-
+        //Test after one shuffle
         Assertions.assertEquals(allExpectedPoints, allGeneratedPoints);
 
         for (int i = 0; i < 20; i++)
         {
-            checkboardTest.shuffleCheckerboard();
-
+           test = checkerboardMainTest.shuffleCheckerboard();
         }
 
-        test = checkboardTest.shuffleCheckerboard();
         allGeneratedPoints = pointerCounter(test);
 
         displayer(test);
 
+        //Test after next 20 shuffles
         Assertions.assertEquals(allExpectedPoints, allGeneratedPoints);
     }
 
@@ -120,7 +122,7 @@ public class CheckerBoard_Test
         {
             for (int j = 0; j < 15; j++)
             {
-                System.out.print(testedArray[i][j]);
+                System.out.print(testedArray[i][j] + " ");
             }
             System.out.println();
         }
