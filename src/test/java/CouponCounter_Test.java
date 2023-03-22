@@ -5,9 +5,12 @@ import dto.RoundData;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+
+/**
+ * <strong>CouponCounter_Test</strong>
+ */
 public class CouponCounter_Test
 {
-
     private CouponCounter couponCounterTest = new CouponCounter();
     private Checkerboard checkboardTest = new Checkerboard();
 
@@ -71,13 +74,6 @@ public class CouponCounter_Test
 
         Assertions.assertEquals(testMAXCoordinate2.getCoordinateA(), expectedCoordinate2.getCoordinateA());
         Assertions.assertEquals(testMAXCoordinate2.getCoordinateB(), expectedCoordinate2.getCoordinateB());
-
-        /*
-         * allCouponSum List Test
-         * In this case CouponCounter{allMaxCouponCoordinates=[12, 1][3,0]
-         */
-        System.out.println("FindMaxCoordinates_Test");
-        System.out.println(couponCounterTest.getAllMaxCouponCoordinates());
     }
 
     @Test
@@ -103,13 +99,6 @@ public class CouponCounter_Test
 
         Assertions.assertEquals(expectedMax, testMax);
         Assertions.assertEquals(expectedMax2, testMax2);
-
-        /*
-         * allCouponSum List Test
-         * In this case CouponCounter{allMaxCouponValues=[44, 222]
-         */
-        System.out.println("FindMax_Test");
-        System.out.println(couponCounterTest.getAllMaxCouponValues());
     }
 
     @Test
@@ -126,7 +115,7 @@ public class CouponCounter_Test
             checkboardTest.shuffleCheckerboard();
         }
 
-        int[][] testArr = checkboardTest.getCheckBoard();
+        int[][] testArr = checkboardTest.getCheckerBoard();
         sum = couponCounterTest.sumCoupons(testArr);
 
         Assertions.assertEquals(sum, expectedSum);
@@ -142,12 +131,5 @@ public class CouponCounter_Test
         sum = couponCounterTest.sumCoupons(testArr);
 
         Assertions.assertEquals(sum, expectedSum);
-
-        /*
-         * allCouponSum List Test
-         * In this case CouponCounter{allCouponSums=[225, 2]
-         */
-        System.out.println("SumCoupons_Test");
-        System.out.println(couponCounterTest.getAllCouponSums());
     }
 }

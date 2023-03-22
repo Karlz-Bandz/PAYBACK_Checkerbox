@@ -50,7 +50,7 @@ public abstract class Board
         this.checkerBoard = checkerBoard;
     }
 
-    public int[][] getCheckBoard()
+    public int[][] getCheckerBoard()
     {
         return this.checkerBoard;
     }
