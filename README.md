@@ -11,8 +11,8 @@ points or continue to play and wait for the next collecting of points
 which is at round 50. The last time when player can collect any points
 is at round 100.
 
-     <strong>!IMPORTANT!</strong>
-* 
+     !IMPORTANT!
+
 *   The application logic always works correct, but it is displayed correct only
 *  when is run on Windows command line or IOS/Linux terminal. It happens because
 *  private method clearConsole inside the GameBoot class doesn't work on any IDE
