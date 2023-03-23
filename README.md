@@ -26,6 +26,6 @@ is at round 100.
 *  More information will be displayed when you run the program. More details and descriptions can
 *  be found inside interfaces and classes documentation.
 *
-*  Of course if you want inside the out/artifact folder you can find .jar file with the
+*  Of course if you want inside the out/artifacts folder you can find .jar file with the
 *  built application it is the easiest way to run it with java -jar example.jar
 
